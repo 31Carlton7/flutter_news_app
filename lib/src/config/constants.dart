@@ -1,4 +1,2 @@
 // App title
-const String kAppTitle = 'Canton News App';
-
-
+const String kAppTitle = 'News App';
