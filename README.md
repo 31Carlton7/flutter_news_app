@@ -1,6 +1,6 @@
-# canton_news_app
+# news_app
 
-A new Flutter project.
+A simple news app that incorporates newsapi.org api.
 
 ## Getting Started
 
