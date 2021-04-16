@@ -1,0 +1,22 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "canton_news_app",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "canton_design_system",
+            "cwd": "packages/canton_design_system",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define=newsApiKey=748b7ffc9ab541689b6389f9f40b256d"
+            ],
+        }
+    ]
+}

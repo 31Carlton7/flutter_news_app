@@ -1,0 +1,77 @@
+import 'package:canton_design_system/canton_design_system.dart';
+import 'package:canton_news_app/src/models/article.dart';
+import 'package:canton_news_app/src/ui/views/article_view.dart';
+
+class ArticleCardLarge extends StatelessWidget {
+  const ArticleCardLarge({Key key, this.article}) : super(key: key);
+  @required
+  final Article article;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () => viewTransition(context, ArticleView(article)),
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipSquircleBorder(
+              radius: 45,
+              child: Image.network(
+                article.getImageUrl,
+                fit: BoxFit.cover,
+                height: 200,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
+              child: Text(
+                article.name,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: cantonSuccess[600]),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                article.title.substring(0, article.title.indexOf(' - ')),
+                style: Theme.of(context)
+                    .textTheme
+                    .headline6
+                    .copyWith(color: cantonGrey[900]),
+              ),
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                  child: Text(
+                    article.getPublishedAtFormattedTime,
+                    style: Theme.of(context).textTheme.caption.copyWith(
+                          color: cantonGrey[600],
+                          fontWeight: FontWeight.w400,
+                        ),
+                  ),
+                ),
+                Spacer(),
+                CantonActionButton(
+                  icon: FeatherIcons.bookmark,
+                  iconColor: cantonGrey[600],
+                  onPressed: () {},
+                ),
+                CantonActionButton(
+                  icon: FeatherIcons.moreHorizontal,
+                  iconColor: cantonGrey[600],
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
