@@ -4,11 +4,11 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_card_large.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_card_medium.dart';
+import 'package:canton_news_app/src/ui/styled_components/article_card_small.dart';
 import 'package:canton_news_app/src/ui/styled_components/covid19_card.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
 import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:intl/intl.dart';
 import 'package:riverpod/riverpod.dart';
 
 class TopStoriesView extends ConsumerWidget {
@@ -33,6 +33,7 @@ class TopStoriesView extends ConsumerWidget {
           slivers: [
             _header(context),
             _articleList(context, articles),
+            _articleGrid(context, articles),
           ],
         );
       },
@@ -78,16 +79,14 @@ class TopStoriesView extends ConsumerWidget {
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          if (articles.length != 0) {
+          if (articles.length != 0 && index <= 5) {
             switch (index) {
               case 0:
                 return COVID19Card();
               case 1:
-              case 5:
-              case 10:
-                return ArticleCardLarge(article: articles[index]);
+                return ArticleCardLarge(articles[index]);
               default:
-                return ArticleCardMedium(article: articles[index]);
+                return ArticleCardMedium(articles[index]);
             }
           } else {
             Center(
@@ -106,6 +105,28 @@ class TopStoriesView extends ConsumerWidget {
         /// Sets ChildCount to one incase of error and needs to display on Item in the list
         /// This also allows the use of the [RefreshList] widget, to refresh the feed.
         childCount: articles.length != 0 ? articles.length - 1 : 1,
+      ),
+    );
+  }
+
+  Widget _articleGrid(BuildContext context, List<Article> articles) {
+    return SliverGrid(
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          if (articles.length != 0) {
+            index -= 5;
+            return ArticleCardSmall(articles[index + 5]);
+          }
+          return Container();
+        },
+
+        /// Sets ChildCount to one incase of error and needs to display on Item in the list
+        /// This also allows the use of the [RefreshList] widget, to refresh the feed.
+        childCount: articles.length != 0 ? articles.length - 1 : 1,
+      ),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisExtent: 350,
       ),
     );
   }
