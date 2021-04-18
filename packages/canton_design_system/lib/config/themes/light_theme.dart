@@ -1,5 +1,5 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_design_system/config/palette.dart';
+import 'package:canton_design_system/config/color_palette.dart';
 import 'package:flutter/material.dart';
 
 ThemeData cantonLightTheme() {
