@@ -3,7 +3,7 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/views/article_view.dart';
 
 class ArticleCardLarge extends StatelessWidget {
-  const ArticleCardLarge({Key key, this.article}) : super(key: key);
+  const ArticleCardLarge(this.article);
   @required
   final Article article;
 
@@ -29,7 +29,7 @@ class ArticleCardLarge extends StatelessWidget {
                 article.name,
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText1
+                    .bodyText2
                     .copyWith(color: cantonSuccess[600]),
               ),
             ),
@@ -59,11 +59,6 @@ class ArticleCardLarge extends StatelessWidget {
                 Spacer(),
                 CantonActionButton(
                   icon: FeatherIcons.bookmark,
-                  iconColor: cantonGrey[600],
-                  onPressed: () {},
-                ),
-                CantonActionButton(
-                  icon: FeatherIcons.moreHorizontal,
                   iconColor: cantonGrey[600],
                   onPressed: () {},
                 ),

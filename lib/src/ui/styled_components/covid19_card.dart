@@ -5,7 +5,7 @@ class COVID19Card extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(7),
         child: Row(
           children: [
             Expanded(
@@ -14,14 +14,15 @@ class COVID19Card extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                       text: 'COVID-19 News: ',
-                      style: textTheme(context).bodyText1.copyWith(
-                          color: cantonSuccess[600],
-                          fontWeight: FontWeight.w500),
+                      style: textTheme(context).bodyText2.copyWith(
+                            color: cantonSuccess[600],
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                     TextSpan(
                       text: 'Get the latest coverage of the coronavirus',
                       style: textTheme(context)
-                          .bodyText1
+                          .bodyText2
                           .copyWith(color: cantonGrey[900]),
                     ),
                   ],
@@ -31,6 +32,7 @@ class COVID19Card extends StatelessWidget {
             CantonHeaderButton(
               icon: FeatherIcons.chevronRight,
               radius: 35,
+              size: 55.0,
               onPressed: () {},
             ),
           ],

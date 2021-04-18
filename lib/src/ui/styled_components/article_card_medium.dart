@@ -3,7 +3,7 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/views/article_view.dart';
 
 class ArticleCardMedium extends StatelessWidget {
-  const ArticleCardMedium({Key key, this.article}) : super(key: key);
+  const ArticleCardMedium(this.article);
 
   @required
   final Article article;
@@ -29,7 +29,7 @@ class ArticleCardMedium extends StatelessWidget {
                         article.name,
                         style: Theme.of(context)
                             .textTheme
-                            .bodyText1
+                            .bodyText2
                             .copyWith(color: cantonSuccess[600]),
                       ),
                       SizedBox(height: 7),
@@ -38,7 +38,7 @@ class ArticleCardMedium extends StatelessWidget {
                         child: Text(
                           article.title
                               .substring(0, article.title.indexOf(' - ')),
-                          style: Theme.of(context).textTheme.bodyText1.copyWith(
+                          style: Theme.of(context).textTheme.bodyText2.copyWith(
                                 color: cantonGrey[900],
                                 fontWeight: FontWeight.w600,
                               ),
@@ -62,6 +62,7 @@ class ArticleCardMedium extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     ClipSquircleBorder(
                       radius: 40,
@@ -72,19 +73,10 @@ class ArticleCardMedium extends StatelessWidget {
                         height: 100,
                       ),
                     ),
-                    Row(
-                      children: [
-                        CantonActionButton(
-                          icon: FeatherIcons.bookmark,
-                          iconColor: cantonGrey[600],
-                          onPressed: () {},
-                        ),
-                        CantonActionButton(
-                          icon: FeatherIcons.moreHorizontal,
-                          iconColor: cantonGrey[600],
-                          onPressed: () {},
-                        ),
-                      ],
+                    CantonActionButton(
+                      icon: FeatherIcons.bookmark,
+                      iconColor: cantonGrey[600],
+                      onPressed: () {},
                     ),
                   ],
                 ),
