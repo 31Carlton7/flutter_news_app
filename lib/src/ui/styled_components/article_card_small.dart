@@ -27,7 +27,7 @@ class ArticleCardSmall extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               child: Text(
-                article.title,
+                article.title.substring(0, article.title.indexOf(' - ')),
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
                       color: cantonGrey[900],
                       fontWeight: FontWeight.w600,
