@@ -11,7 +11,6 @@ void main() {
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]).then((_) {
     runApp(ProviderScope(child: MyApp()));
   });
-  // runApp(ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
