@@ -9,7 +9,7 @@ export 'package:flutter_feather_icons/flutter_feather_icons.dart';
 export 'package:flutter_spinkit/flutter_spinkit.dart';
 
 export 'config/themes/light_theme.dart';
-export 'config/palette.dart';
+export 'config/color_palette.dart';
 export 'models/models.dart';
 export 'src/styled_components/styled_components.dart';
 export 'src/variables.dart';
