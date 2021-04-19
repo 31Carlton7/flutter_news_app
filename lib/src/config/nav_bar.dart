@@ -1,5 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/ui/views/search_view.dart';
+import 'package:canton_news_app/src/ui/views/category_view.dart';
+import 'package:canton_news_app/src/ui/views/top_sources_view.dart';
 import 'package:canton_news_app/src/ui/views/top_stories_view.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 
@@ -17,7 +18,7 @@ class CurrentScreen extends StatelessWidget {
           inactiveColorPrimary: cantonGrey[500],
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(FeatherIcons.search, size: 24),
+          icon: const Icon(FeatherIcons.trendingUp, size: 24),
           title: '',
           activeColorPrimary: cantonSuccess[600],
           inactiveColorPrimary: cantonGrey[500],
@@ -27,7 +28,7 @@ class CurrentScreen extends StatelessWidget {
 
     final List<Widget> views = [
       TopStoriesView(),
-      SearchView(),
+      TopSourcesView(),
     ];
 
     return PersistentTabView(
