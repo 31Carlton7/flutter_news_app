@@ -65,7 +65,7 @@ class ArticleView extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 37),
+          padding: EdgeInsets.symmetric(horizontal: 27),
           child: Text(
             article.title.substring(0, article.title.indexOf(' - ')),
             style: Theme.of(context)
@@ -106,7 +106,7 @@ class ArticleView extends StatelessWidget {
   }
 
   String authorName() {
-    return [null, '', 'https', 'HTTPS'].contains(article.author)
+    return [null, '', 'http', 'HTTP'].contains(article.author)
         ? 'BY UNKNOWN'
         : article.author.toUpperCase().contains('BY ')
             ? article.author.toUpperCase()
@@ -119,7 +119,7 @@ class ArticleView extends StatelessWidget {
 
   Widget _body(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 37),
+      padding: EdgeInsets.symmetric(horizontal: 27),
       child: Text(
         article.content ?? 'No Content',
         style: Theme.of(context)

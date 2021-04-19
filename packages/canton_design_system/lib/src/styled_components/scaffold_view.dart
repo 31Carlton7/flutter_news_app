@@ -14,6 +14,7 @@ class CantonScaffold extends StatelessWidget {
     return GestureDetector(
       onTap: () => defocusTextfield(context),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Padding(
             padding: padding,

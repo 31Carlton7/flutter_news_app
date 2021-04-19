@@ -13,9 +13,8 @@ class ArticleCardMedium extends StatelessWidget {
     return GestureDetector(
       onTap: () => viewTransition(context, ArticleView(article)),
       child: Card(
-        shape: const SquircleBorder(),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
+          padding: const EdgeInsets.all(7),
           child: Row(
             children: [
               Flexible(
@@ -24,6 +23,7 @@ class ArticleCardMedium extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                         article.name,

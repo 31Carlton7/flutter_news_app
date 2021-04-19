@@ -1,15 +1,33 @@
 import 'package:canton_design_system/canton_design_system.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UnexpectedError extends StatelessWidget {
+  const UnexpectedError(this.provider);
+  final AutoDisposeFutureProvider provider;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        'Oops, something unexpected happened :(',
-        style: Theme.of(context)
-            .textTheme
-            .headline5
-            .copyWith(color: cantonGrey[600]),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Oops, something unexpected happened :(',
+            textAlign: TextAlign.center,
+            style: Theme.of(context)
+                .textTheme
+                .headline5
+                .copyWith(color: cantonGrey[600]),
+          ),
+          SizedBox(height: 20),
+          CantonPrimaryButton(
+            buttonText: 'Retry',
+            containerColor: cantonSuccess[600],
+            textColor: cantonGrey[100],
+            containerWidth: MediaQuery.of(context).size.width / 2 - 74,
+            enabled: true,
+            onPressed: () => context.refresh(provider),
+          ),
+        ],
       ),
     );
   }

@@ -26,12 +26,24 @@ class ArticleCardSmall extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Text(
-                article.title.substring(0, article.title.indexOf(' - ')),
-                style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color: cantonGrey[900],
-                      fontWeight: FontWeight.w600,
-                    ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    article.name,
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                          color: cantonSuccess[600],
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                  Text(
+                    shortenLengthenOfTitle(article.title),
+                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                          color: cantonGrey[900],
+                          fontWeight: FontWeight.w500,
+                        ),
+                  ),
+                ],
               ),
             ),
             Spacer(),
@@ -59,5 +71,18 @@ class ArticleCardSmall extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  /// Adds '...' to end of string if string word length is greater than 15
+  String shortenLengthenOfTitle(String string) {
+    string = string.substring(0, string.indexOf(' - '));
+    if (string.split(' ').length >= 15) {
+      return addDotsToString(
+        string,
+        15,
+      );
+    } else {
+      return string;
+    }
   }
 }

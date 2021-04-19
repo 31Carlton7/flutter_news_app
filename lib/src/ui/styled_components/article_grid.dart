@@ -22,7 +22,7 @@ class ArticleGrid extends StatelessWidget {
         /// This also allows the use of the [RefreshList] widget, to refresh the feed.
         childCount: articles.length != 0 ? articles.length - 1 : 1,
       ),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         mainAxisExtent: 350,
       ),

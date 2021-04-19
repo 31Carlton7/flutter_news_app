@@ -1,15 +1,22 @@
 import 'package:canton_design_system/canton_design_system.dart';
+import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/article.dart';
+import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
-import 'package:canton_news_app/src/ui/providers/news_search_future_provider.dart';
+import 'package:canton_news_app/src/ui/providers/news_sources_future_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_card_large.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_card_medium.dart';
+import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
+import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
 import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SourceView extends ConsumerWidget {
+  const SourceView(this.source);
+  @required
+  final Source source;
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     return CantonScaffold(
@@ -18,42 +25,49 @@ class SourceView extends ConsumerWidget {
   }
 
   Widget _content(BuildContext context, ScopedReader watch) {
-    return watch(newsSearchFutureProvider).when(
+    final _environmentConfig = EnvironmentConfig();
+    // path =
+    //     'https://newsapi.org/v2/sources?category=${source.name}&apiKey=${_environmentConfig.newsApiKey}';
+    return watch(newsSourcesFutureProvider).when(
       loading: () => Loading(),
       error: (e, s) {
         if (e is NewsExceptions) {
           return ErrorBody(e.message);
         }
-        return UnexpectedError();
+        return UnexpectedError(newsSourcesFutureProvider);
       },
       data: (articles) {
-        return Column(children: <Widget>[
-          _header(context),
-          SizedBox(height: 10),
-          _articleList(context, articles),
-        ]);
+        return CustomScrollView(
+          slivers: <Widget>[
+            _header(context),
+            // ArticleList(articles),
+            // ArticleGrid(articles),
+            // _articleList(context, articles),
+          ],
+        );
       },
     );
   }
 
   Widget _header(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 17),
-      child: Row(
+    return SliverAppBar(
+      floating: true,
+      elevation: 0,
+      backgroundColor: cantonGrey[100],
+      flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CantonBackButton(),
+        children: <Widget>[
+          CantonBackButton(
+            isClear: true,
+          ),
           Text(
-            'SOURCE NAME',
-            style: textTheme(context).headline6.copyWith(
-                  color: cantonSuccess[600],
-                ),
+            source.name,
+            style: Theme.of(context)
+                .textTheme
+                .headline5
+                .copyWith(color: cantonSuccess[600]),
           ),
-          CantonHeaderButton(
-            iconColor: cantonGrey[600],
-            icon: FeatherIcons.moreVertical,
-            onPressed: () {},
-          ),
+          Container(width: 60),
         ],
       ),
     );
@@ -74,9 +88,9 @@ class SourceView extends ConsumerWidget {
           itemBuilder: (context, index) {
             return articles.length != 0
                 ? (index == 0 || index == 4 || index == 9)
-                    ? ArticleCardLarge(article: articles[index])
+                    ? ArticleCardLarge(articles[index])
                     : ArticleCardMedium(
-                        article: articles[index],
+                        articles[index],
                       )
                 : Center(
                     child: Text(

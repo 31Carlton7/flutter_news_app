@@ -5,6 +5,8 @@ import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
 import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
+import 'package:canton_news_app/src/ui/views/category_view.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -22,13 +24,16 @@ class TopStoriesView extends ConsumerWidget {
         if (e is NewsExceptions) {
           return ErrorBody(e.message);
         }
-        return UnexpectedError();
+        return UnexpectedError(newsFutureProvider);
       },
       loading: () => Loading(),
       data: (articles) {
         return CustomScrollView(
           slivers: [
             _header(context),
+            CupertinoSliverRefreshControl(
+              onRefresh: () async => await context.refresh(newsFutureProvider),
+            ),
             ArticleList(articles),
             ArticleGrid(articles),
           ],
@@ -46,9 +51,9 @@ class TopStoriesView extends ConsumerWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           CantonActionButton(
-            icon: FeatherIcons.search,
+            icon: FeatherIcons.list,
             iconColor: cantonGrey[600],
-            onPressed: () {},
+            onPressed: () => viewTransition(context, CategoryView()),
           ),
           Text(
             'Top Stories',
@@ -62,11 +67,6 @@ class TopStoriesView extends ConsumerWidget {
             iconColor: cantonGrey[600],
             onPressed: () {},
           ),
-          // Text(
-          //   DateFormat.yMMMMd().format(DateTime.now().toLocal()),
-          //   style:
-          //       textTheme(context).bodyText1.copyWith(color: cantonGrey[600]),
-          // ),
         ],
       ),
     );
