@@ -20,7 +20,7 @@ class SourceCard extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(5),
                 child: Text(
-                  source.category.substring(0, 1),
+                  source.name.substring(0, 1),
                   style: textTheme(context).headline5.copyWith(
                         color: cantonSuccess[600],
                       ),
@@ -29,7 +29,7 @@ class SourceCard extends StatelessWidget {
               SizedBox(width: 7),
               Expanded(
                 child: Text(
-                  source.category,
+                  source.name,
                   style: textTheme(context)
                       .headline6
                       .copyWith(color: cantonGrey[900]),

@@ -6,8 +6,9 @@ import 'covid19_card.dart';
 import 'article_card_large.dart';
 
 class ArticleList extends StatelessWidget {
-  const ArticleList(this.articles);
+  const ArticleList(this.articles, this.showCovid19Card);
   final List<Article> articles;
+  final bool showCovid19Card;
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +16,17 @@ class ArticleList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (articles.length != 0 && index <= 5) {
-            switch (index) {
-              case 0:
-                return COVID19Card();
-              case 1:
-                return ArticleCardLarge(articles[index]);
-              default:
-                return ArticleCardMedium(articles[index]);
+            if (index == -1) {
+              return Text('Error');
+            } else {
+              switch (index) {
+                case 0:
+                  return showCovid19Card ? COVID19Card() : Container();
+                case 1:
+                  return ArticleCardLarge(articles[index]);
+                default:
+                  return ArticleCardMedium(articles[index]);
+              }
             }
           } else {
             Center(
