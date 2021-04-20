@@ -4,8 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'news_service_provider.dart';
 
+String path;
 final _environmentConfig = EnvironmentConfig();
-String path = '';
 
 final newsSourcesFutureProvider =
     FutureProvider.autoDispose<List<Source>>((ref) async {
@@ -13,11 +13,8 @@ final newsSourcesFutureProvider =
 
   final newsService = ref.read(newsServiceProvider);
   final sources = newsService.getSources(
-    // ['', null].contains(path)
-    //     ?
-    'https://newsapi.org/v2/sources?country=us&apiKey=${_environmentConfig.newsApiKey}',
-    // :
-    // path,
+    path ??
+        'https://newsapi.org/v2/sources?country=us&apiKey=${_environmentConfig.newsApiKey}',
   );
   return sources;
 });
