@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 class Article {
+  String id;
   String name;
   String author;
   String title;
@@ -9,6 +10,7 @@ class Article {
   String publishedAt;
 
   Article({
+    this.id,
     this.name,
     this.author,
     this.title,
@@ -35,6 +37,7 @@ class Article {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'author': author,
       'title': title,
@@ -48,6 +51,7 @@ class Article {
     if (map == null) return null;
 
     return Article(
+      id: map['source']['id'] as String,
       name: map['source']['name'] as String,
       author: map['author'] as String,
       title: map['title'] as String,
