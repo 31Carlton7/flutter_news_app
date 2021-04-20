@@ -9,15 +9,17 @@ class NewsService {
   final EnvironmentConfig _environmentConfig;
   final Dio _dio;
 
-  Future<List<Article>> getArticles() async {
+  Future<List<Article>> getArticles({String path}) async {
     try {
       final response = await _dio.get(
-        'https://newsapi.org/v2/top-headlines?language=en&apiKey=${_environmentConfig.newsApiKey}',
+        path,
       );
 
       final results = List<Map<String, dynamic>>.from(
         response.data['articles'],
       );
+      print(path);
+      print(results);
 
       final List<Article> articles = results
           .map((articleData) => Article.fromMap(articleData))
@@ -40,7 +42,6 @@ class NewsService {
       final List<Source> sources = results
           .map((sourceData) => Source.fromMap(sourceData))
           .toList(growable: false);
-      print(sources);
 
       return sources;
     } on DioError catch (e) {
