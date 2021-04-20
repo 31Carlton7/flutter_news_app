@@ -1,5 +1,4 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/ui/views/category_view.dart';
 import 'package:canton_news_app/src/ui/views/top_sources_view.dart';
 import 'package:canton_news_app/src/ui/views/top_stories_view.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
