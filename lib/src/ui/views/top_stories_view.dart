@@ -88,7 +88,7 @@ class _TopStoriesViewState extends State<TopStoriesView> {
           ),
           CantonActionButton(
             icon: IconlyIcon(
-              IconlyCurved.Bookmark,
+              IconlyBold.Bookmark,
               color: CantonColors.iconSecondary,
             ),
             onPressed: () {},

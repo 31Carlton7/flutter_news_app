@@ -75,7 +75,7 @@ class _SourceViewState extends State<SourceView> {
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          CantonBackButton(),
+          CantonBackButton(isClear: true),
           Text(
             widget.source.name,
             style: Theme.of(context)
