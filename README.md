@@ -1,16 +1,31 @@
-# news_app
+# News App
 
-A simple news app that incorporates newsapi.org api.
+A simple news app that incorporates newsapi.org api all built entirely with Flutter.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- Top Stories Feed: Gett top stories from around the globe.
+- Search by category: Look at different articles by category such as Business, Health, etc.
+- COVID-19 Section: A special section for Coronavirus news.
 
-A few resources to get you started if this is your first Flutter project:
+## TODO
+- [ ] Fix search functionality
+- [ ] Make public
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Dependencies
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ - canton_design_system: [Link](https://github.com/31Carlton7/canton_design_system) to repository
+ - flutter_riverpod:
+ - persistent_bottom_nav_bar:
+ - cupertino_icons:
+ - dio:
+ - intl:
+ - liquid_pull_to_refresh:
+ - shared_preferences:
+
+## Socials
+
+If you have any questions, you can reach me here:
+
+- Instagram: 31carlton7
+- Email: carltonaikins7@gmail.com
