@@ -1,4 +1,4 @@
-# news_app
+# News App
 
 A simple news app that incorporates newsapi.org api.
 
