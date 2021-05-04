@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: kAppTitle,
-      theme: cantonLightTheme().copyWith(primaryColor: cantonSuccess[600]),
+      theme: cantonLightTheme().copyWith(primaryColor: CantonColors.green),
       home: CurrentScreen(),
     );
   }

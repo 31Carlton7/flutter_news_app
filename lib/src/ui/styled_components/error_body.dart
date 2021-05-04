@@ -25,7 +25,7 @@ class ErrorBody extends ConsumerWidget {
         SizedBox(height: 12),
         CantonPrimaryButton(
           buttonText: 'Retry',
-          containerColor: cantonSuccess[600],
+          containerColor: CantonColors.green,
           textColor: cantonGrey[100],
           containerWidth: MediaQuery.of(context).size.width / 2 - 74,
           enabled: true,

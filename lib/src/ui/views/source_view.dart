@@ -75,15 +75,13 @@ class _SourceViewState extends State<SourceView> {
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          CantonBackButton(
-            isClear: true,
-          ),
+          CantonBackButton(),
           Text(
             widget.source.name,
             style: Theme.of(context)
                 .textTheme
                 .headline5
-                .copyWith(color: cantonSuccess[600]),
+                .copyWith(color: CantonColors.green),
           ),
           Container(width: 60),
         ],

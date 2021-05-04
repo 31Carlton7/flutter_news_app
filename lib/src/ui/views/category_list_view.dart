@@ -47,7 +47,7 @@ class _CategoryListViewState extends State<CategoryListView> {
         Text(
           'Categories',
           style: Theme.of(context).textTheme.headline6.copyWith(
-                color: cantonSuccess[600],
+                color: CantonColors.green,
               ),
         ),
         Container(width: 60),

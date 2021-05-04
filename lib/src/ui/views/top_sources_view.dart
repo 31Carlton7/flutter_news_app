@@ -53,7 +53,7 @@ class TopSourcesView extends ConsumerWidget {
             style: Theme.of(context)
                 .textTheme
                 .headline5
-                .copyWith(color: cantonSuccess[600]),
+                .copyWith(color: CantonColors.green),
           ),
 
           // Text(

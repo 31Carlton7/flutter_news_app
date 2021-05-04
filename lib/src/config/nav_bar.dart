@@ -11,16 +11,16 @@ class CurrentScreen extends StatelessWidget {
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         PersistentBottomNavBarItem(
-          icon: const Icon(FeatherIcons.home, size: 24),
+          icon: const IconlyIcon(IconlyBold.Home, size: 24),
           title: '',
-          activeColorPrimary: cantonSuccess[600],
-          inactiveColorPrimary: cantonGrey[500],
+          activeColorPrimary: CantonColors.green,
+          inactiveColorPrimary: CantonColors.iconTertiary,
         ),
         PersistentBottomNavBarItem(
-          icon: const Icon(FeatherIcons.trendingUp, size: 24),
+          icon: const IconlyIcon(IconlyBold.Chart, size: 24),
           title: '',
-          activeColorPrimary: cantonSuccess[600],
-          inactiveColorPrimary: cantonGrey[500],
+          activeColorPrimary: CantonColors.green,
+          inactiveColorPrimary: CantonColors.iconTertiary,
         ),
       ];
     }

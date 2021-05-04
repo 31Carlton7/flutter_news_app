@@ -48,7 +48,7 @@ class ArticleView extends StatelessWidget {
           Text(
             article.name,
             style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: cantonSuccess[600],
+                  color: CantonColors.green,
                 ),
           ),
           CantonHeaderButton(
