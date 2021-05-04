@@ -13,6 +13,7 @@ A simple news app that incorporates newsapi.org api all built entirely with Flut
 #### Create
 - [ ] Create bookmark/save article functionality
 - [ ] Create COVID-19 View and card functionality
+- [ ] Update "article_view" UI
 - [X] Make public
 
 #### Fixes
