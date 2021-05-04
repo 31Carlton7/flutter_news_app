@@ -9,8 +9,18 @@ A simple news app that incorporates newsapi.org api all built entirely with Flut
 - COVID-19 Section: A special section for Coronavirus news.
 
 ## TODO
+
+#### Create
+- [ ] Create bookmark/save article functionality
+- [ ] Create COVID-19 View functionality
+- [X] Make public
+
+#### Fixes
 - [ ] Fix search functionality
-- [ ] Make public
+- [ ] Fix header on "source_view"
+- [ ] Fix "top_stories_view" / "source_view" glitch
+- [ ] Fix "source_card" border
+
 
 ## Dependencies
 
