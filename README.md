@@ -6,7 +6,7 @@ A simple news app that incorporates newsapi.org api all built entirely with Flut
 
 - Top Stories Feed: Gett top stories from around the globe.
 - Search by category: Look at different articles by category such as Business, Health, etc.
-- COVID-19 Section: A special section for Coronavirus news.
+- COVID-19 Section (WIP): A special section for Coronavirus news.
 
 ## TODO
 
