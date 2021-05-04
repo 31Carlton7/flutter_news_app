@@ -1,5 +1,4 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
@@ -73,20 +72,25 @@ class _TopStoriesViewState extends State<TopStoriesView> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           CantonActionButton(
-            icon: FeatherIcons.list,
-            iconColor: cantonGrey[600],
-            onPressed: () => viewTransition(context, CategoryListView()),
+            icon: IconlyIcon(
+              IconlyBold.Filter1,
+              color: CantonColors.textSecondary,
+            ),
+            onPressed: () =>
+                CantonMethods.viewTransition(context, CategoryListView()),
           ),
           Text(
             'Top Stories',
             style: Theme.of(context)
                 .textTheme
                 .headline5
-                .copyWith(color: cantonSuccess[600]),
+                .copyWith(color: CantonColors.green),
           ),
           CantonActionButton(
-            icon: FeatherIcons.bookmark,
-            iconColor: cantonGrey[600],
+            icon: IconlyIcon(
+              IconlyCurved.Bookmark,
+              color: CantonColors.iconSecondary,
+            ),
             onPressed: () {},
           ),
         ],

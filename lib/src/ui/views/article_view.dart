@@ -52,8 +52,8 @@ class ArticleView extends StatelessWidget {
                 ),
           ),
           CantonHeaderButton(
-            iconColor: cantonGrey[600],
-            icon: FeatherIcons.moreVertical,
+            icon: Icon(FeatherIcons.moreVertical,
+                color: CantonColors.iconSecondary),
             onPressed: () {},
           ),
         ],

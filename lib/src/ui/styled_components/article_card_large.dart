@@ -10,7 +10,7 @@ class ArticleCardLarge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => viewTransition(context, ArticleView(article)),
+      onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -30,7 +30,7 @@ class ArticleCardLarge extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2
-                    .copyWith(color: cantonSuccess[600]),
+                    .copyWith(color: CantonColors.green),
               ),
             ),
             Padding(
@@ -40,7 +40,7 @@ class ArticleCardLarge extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .headline6
-                    .copyWith(color: cantonGrey[900]),
+                    .copyWith(color: CantonColors.textPrimary),
               ),
             ),
             Row(
@@ -51,14 +51,15 @@ class ArticleCardLarge extends StatelessWidget {
                   child: Text(
                     article.getPublishedAtFormattedTime,
                     style: Theme.of(context).textTheme.caption.copyWith(
-                          color: cantonGrey[600],
+                          color: CantonColors.iconSecondary,
                           fontWeight: FontWeight.w400,
                         ),
                   ),
                 ),
                 Spacer(),
                 CantonActionButton(
-                  icon: FeatherIcons.bookmark,
+                  icon: IconlyIcon(IconlyCurved.Bookmark,
+                      color: CantonColors.iconSecondary),
                   iconColor: cantonGrey[600],
                   onPressed: () {},
                 ),

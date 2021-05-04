@@ -11,7 +11,7 @@ class ArticleCardMedium extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => viewTransition(context, ArticleView(article)),
+      onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.all(7),
@@ -30,7 +30,7 @@ class ArticleCardMedium extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2
-                            .copyWith(color: cantonSuccess[600]),
+                            .copyWith(color: CantonColors.green),
                       ),
                       SizedBox(height: 7),
                       Container(
@@ -39,7 +39,7 @@ class ArticleCardMedium extends StatelessWidget {
                           article.title
                               .substring(0, article.title.indexOf(' - ')),
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                color: cantonGrey[900],
+                                color: CantonColors.textPrimary,
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -49,8 +49,8 @@ class ArticleCardMedium extends StatelessWidget {
                         width: MediaQuery.of(context).size.width - 164,
                         child: Text(
                           article.getPublishedAtFormattedTime,
-                          style: textTheme(context).caption.copyWith(
-                                color: cantonGrey[600],
+                          style: Theme.of(context).textTheme.caption.copyWith(
+                                color: CantonColors.textTertiary,
                                 fontWeight: FontWeight.w400,
                               ),
                         ),
@@ -74,8 +74,10 @@ class ArticleCardMedium extends StatelessWidget {
                       ),
                     ),
                     CantonActionButton(
-                      icon: FeatherIcons.bookmark,
-                      iconColor: cantonGrey[600],
+                      icon: IconlyIcon(
+                        IconlyCurved.Bookmark,
+                        color: CantonColors.textSecondary,
+                      ),
                       onPressed: () {},
                     ),
                   ],

@@ -11,7 +11,7 @@ class ArticleCardSmall extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => viewTransition(context, ArticleView(article)),
+      onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -32,14 +32,14 @@ class ArticleCardSmall extends StatelessWidget {
                   Text(
                     article.name,
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: cantonSuccess[600],
+                          color: CantonColors.green,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
                   Text(
                     shortenLengthenOfTitle(article.title),
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: cantonGrey[900],
+                          color: CantonColors.textPrimary,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
@@ -54,15 +54,17 @@ class ArticleCardSmall extends StatelessWidget {
                   child: Text(
                     article.getPublishedAtFormattedTime,
                     style: Theme.of(context).textTheme.caption.copyWith(
-                          color: cantonGrey[600],
+                          color: CantonColors.textTertiary,
                           fontWeight: FontWeight.w400,
                         ),
                   ),
                 ),
                 Spacer(),
                 CantonActionButton(
-                  icon: FeatherIcons.bookmark,
-                  iconColor: cantonGrey[600],
+                  icon: IconlyIcon(
+                    IconlyCurved.Bookmark,
+                    color: CantonColors.iconSecondary,
+                  ),
                   onPressed: () {},
                 ),
               ],
@@ -77,10 +79,7 @@ class ArticleCardSmall extends StatelessWidget {
   String shortenLengthenOfTitle(String string) {
     string = string.substring(0, string.indexOf(' - '));
     if (string.split(' ').length >= 15) {
-      return addDotsToString(
-        string,
-        15,
-      );
+      return CantonMethods.addDotsToString(string, 15);
     } else {
       return string;
     }

@@ -11,7 +11,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => viewTransition(context, SourceView(name)),
+      onTap: () => CantonMethods.viewTransition(context, SourceView(name)),
       child: Card(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
@@ -21,18 +21,20 @@ class CategoryCard extends StatelessWidget {
                 padding: const EdgeInsets.all(5),
                 child: Text(
                   name.category.substring(0, 1),
-                  style: textTheme(context).headline5.copyWith(
-                        color: cantonSuccess[600],
-                      ),
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      .copyWith(color: CantonColors.green),
                 ),
               ),
               SizedBox(width: 7),
               Expanded(
                 child: Text(
                   name.category,
-                  style: textTheme(context)
+                  style: Theme.of(context)
+                      .textTheme
                       .headline6
-                      .copyWith(color: cantonGrey[900]),
+                      .copyWith(color: CantonColors.textPrimary),
                 ),
               ),
             ],
