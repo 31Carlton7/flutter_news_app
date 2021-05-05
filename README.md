@@ -4,9 +4,9 @@ A simple news app that incorporates the [newsapi.org](newsapi.org) api all built
 
 ## Features
 
-- Top Stories Feed: Gett top stories from around the globe.
-- Search by category: Look at different articles by category such as Business, Health, etc.
-- COVID-19 Section (WIP): A designated section for Coronavirus news.
+- _Top Stories Feed_: Get top stories from around the globe.
+- _Search by category_: Look at different articles by category such as Business, Health, etc.
+- _COVID-19 Section (WIP)_: A designated section for Coronavirus news.
 
 ## TODO
 
