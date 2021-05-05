@@ -1,16 +1,27 @@
 # News App
 
-A simple news app that incorporates newsapi.org api all built entirely with Flutter.
+A simple news app that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
 
 ## Features
 
 - Top Stories Feed: Gett top stories from around the globe.
 - Search by category: Look at different articles by category such as Business, Health, etc.
-- COVID-19 Section: A special section for Coronavirus news.
+- COVID-19 Section (WIP): A special section for Coronavirus news.
 
 ## TODO
+
+#### Create
+- [ ] Create bookmark/save article functionality
+- [ ] Create COVID-19 View and card functionality
+- [ ] Update "article_view" UI
+- [X] Make public
+
+#### Fixes
 - [ ] Fix search functionality
-- [ ] Make public
+- [ ] Fix header on "source_view"
+- [ ] Fix "top_stories_view" / "source_view" glitch
+- [ ] Fix "source_card" border
+
 
 ## Dependencies
 
