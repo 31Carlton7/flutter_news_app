@@ -1,7 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
-import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
@@ -10,27 +9,19 @@ import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SourceView extends StatefulWidget {
-  const SourceView(this.source, this.isSource);
-  @required
-  final Source source;
-  final bool isSource;
+class COVID19View extends StatefulWidget {
   @override
-  _SourceViewState createState() => _SourceViewState();
+  _COVID19ViewState createState() => _COVID19ViewState();
 }
 
-class _SourceViewState extends State<SourceView> {
+class _COVID19ViewState extends State<COVID19View> {
   @override
   void initState() {
     super.initState();
     final _environmentConfig = EnvironmentConfig();
-    String sourceOrCategory = widget.isSource ? 'sources' : 'category';
-    String query = widget.source.name.replaceAll(' ', '-');
 
-    /// Only allows articles from the last week to be returned.
     futurePath =
-        'https://newsapi.org/v2/top-headlines?$sourceOrCategory=$query&apiKey=${_environmentConfig.newsApiKey}';
-    context.refresh(newsFutureProvider);
+        'https://newsapi.org/v2/top-headlines?q=coronavirus&apiKey=${_environmentConfig.newsApiKey}';
   }
 
   @override
@@ -53,7 +44,7 @@ class _SourceViewState extends State<SourceView> {
           },
           data: (articles) {
             return CustomScrollView(
-              slivers: <Widget>[
+              slivers: [
                 _header(context),
                 CupertinoSliverRefreshControl(
                   onRefresh: () async =>
@@ -75,7 +66,7 @@ class _SourceViewState extends State<SourceView> {
       elevation: 0,
       backgroundColor: cantonGrey[100],
       title: Text(
-        widget.source.name,
+        'Coronavirus',
         style: Theme.of(context)
             .textTheme
             .headline5

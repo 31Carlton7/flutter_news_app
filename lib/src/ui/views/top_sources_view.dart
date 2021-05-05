@@ -55,12 +55,6 @@ class TopSourcesView extends ConsumerWidget {
                 .headline5
                 .copyWith(color: CantonColors.green),
           ),
-
-          // Text(
-          //   DateFormat.yMMMMd().format(DateTime.now().toLocal()),
-          //   style:
-          //       textTheme(context).bodyText1.copyWith(color: cantonGrey[600]),
-          // ),
         ],
       ),
     );
@@ -75,11 +69,11 @@ class TopSourcesView extends ConsumerWidget {
           } else {
             Center(
               child: Text(
-                'No Sources :(',
+                'Error :(',
                 style: Theme.of(context)
                     .textTheme
                     .headline5
-                    .copyWith(color: cantonGrey[600]),
+                    .copyWith(color: CantonColors.textSecondary),
               ),
             );
           }

@@ -16,30 +16,30 @@ class ArticleList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (articles.length != 0 && index <= 5) {
-            if (index == -1) {
-              return Text('Error');
-            } else {
-              switch (index) {
-                case 0:
-                  return showCovid19Card ? COVID19Card() : Container();
-                case 1:
-                  return ArticleCardLarge(articles[index]);
-                default:
-                  return ArticleCardMedium(articles[index]);
-              }
+            print(index);
+            switch (index) {
+              case 0:
+                return showCovid19Card ? COVID19Card() : Container();
+              case 1:
+                return ArticleCardLarge(articles[index]);
+              default:
+                return ArticleCardMedium(articles[index]);
             }
           } else {
-            Center(
-              child: Text(
-                'No Articles :(',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(color: cantonGrey[600]),
-              ),
-            );
+            if (index == 0) {
+              return Center(
+                child: Text(
+                  'No Articles :(',
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline5
+                      .copyWith(color: CantonColors.textTertiary),
+                ),
+              );
+            } else {
+              return Container();
+            }
           }
-          return Container();
         },
 
         /// Sets ChildCount to one incase of error and needs to display on Item in the list

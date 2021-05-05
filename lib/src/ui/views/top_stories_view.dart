@@ -23,12 +23,6 @@ class _TopStoriesViewState extends State<TopStoriesView> {
   }
 
   @override
-  void dispose() {
-    context.refresh(newsFutureProvider);
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return CantonScaffold(
       body: _content(context),
@@ -36,38 +30,39 @@ class _TopStoriesViewState extends State<TopStoriesView> {
   }
 
   Widget _content(BuildContext context) {
-    futurePath = null;
-    return Consumer(builder: (context, watch, child) {
-      return watch(newsFutureProvider).when(
-        error: (e, s) {
-          if (e is NewsExceptions) {
-            return ErrorBody(e.message);
-          }
-          return UnexpectedError(newsFutureProvider);
-        },
-        loading: () => Loading(),
-        data: (articles) {
-          return CustomScrollView(
-            slivers: [
-              _header(context),
-              CupertinoSliverRefreshControl(
-                onRefresh: () async =>
-                    await context.refresh(newsFutureProvider),
-              ),
-              ArticleList(articles, true),
-              ArticleGrid(articles),
-            ],
-          );
-        },
-      );
-    });
+    return Consumer(
+      builder: (context, watch, child) {
+        return watch(newsFutureProvider).when(
+          error: (e, s) {
+            if (e is NewsExceptions) {
+              return ErrorBody(e.message);
+            }
+            return UnexpectedError(newsFutureProvider);
+          },
+          loading: () => Loading(),
+          data: (articles) {
+            return CustomScrollView(
+              slivers: [
+                _header(context),
+                CupertinoSliverRefreshControl(
+                  onRefresh: () async =>
+                      await context.refresh(newsFutureProvider),
+                ),
+                ArticleList(articles, true),
+                ArticleGrid(articles),
+              ],
+            );
+          },
+        );
+      },
+    );
   }
 
   Widget _header(BuildContext context) {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: cantonGrey[100],
+      backgroundColor: CantonColors.bgCanvas,
       flexibleSpace: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[

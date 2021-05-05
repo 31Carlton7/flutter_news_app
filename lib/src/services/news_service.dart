@@ -1,12 +1,10 @@
-import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/models/source.dart';
 import 'package:dio/dio.dart';
 
 class NewsService {
-  NewsService(this._environmentConfig, this._dio);
-  final EnvironmentConfig _environmentConfig;
+  NewsService(this._dio);
   final Dio _dio;
 
   Future<List<Article>> getArticles({String path}) async {

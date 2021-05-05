@@ -75,7 +75,7 @@ class ArticleCardMedium extends StatelessWidget {
                     ),
                     CantonActionButton(
                       icon: IconlyIcon(
-                        IconlyCurved.Bookmark,
+                        IconlyLine.Bookmark,
                         color: CantonColors.textSecondary,
                       ),
                       onPressed: () {},

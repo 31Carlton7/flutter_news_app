@@ -9,11 +9,9 @@ final _environmentConfig = EnvironmentConfig();
 final newsFutureProvider =
     FutureProvider.autoDispose<List<Article>>((ref) async {
   ref.maintainState = true;
-
   final newsService = ref.read(newsServiceProvider);
 
   final articles = newsService.getArticles(
-    // hdlines: headlines ?? true,
     path: futurePath ??
         'https://newsapi.org/v2/top-headlines?language=en&apiKey=${_environmentConfig.newsApiKey}',
   );

@@ -62,7 +62,7 @@ class ArticleCardSmall extends StatelessWidget {
                 Spacer(),
                 CantonActionButton(
                   icon: IconlyIcon(
-                    IconlyCurved.Bookmark,
+                    IconlyLine.Bookmark,
                     color: CantonColors.iconSecondary,
                   ),
                   onPressed: () {},

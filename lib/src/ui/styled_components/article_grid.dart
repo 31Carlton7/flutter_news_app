@@ -12,10 +12,27 @@ class ArticleGrid extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (articles.length != 0) {
-            index -= 5;
-            return ArticleCardSmall(articles[index + 5]);
+            if (index == -1) {
+              return Text(
+                'Error :(',
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5
+                    .copyWith(color: CantonColors.textTertiary),
+              );
+            } else {
+              index -= 5;
+              return ArticleCardSmall(articles[index + 5]);
+            }
+          } else {
+            return Text(
+              'No Articles :(',
+              style: Theme.of(context)
+                  .textTheme
+                  .headline5
+                  .copyWith(color: CantonColors.textTertiary),
+            );
           }
-          return Container();
         },
 
         /// Sets ChildCount to one incase of error and needs to display on Item in the list

@@ -11,10 +11,11 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => CantonMethods.viewTransition(context, SourceView(name)),
+      onTap: () =>
+          CantonMethods.viewTransition(context, SourceView(name, false)),
       child: Card(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+          padding: EdgeInsets.all(10),
           child: Row(
             children: [
               Container(

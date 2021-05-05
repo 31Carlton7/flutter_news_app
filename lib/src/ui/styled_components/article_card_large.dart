@@ -58,8 +58,10 @@ class ArticleCardLarge extends StatelessWidget {
                 ),
                 Spacer(),
                 CantonActionButton(
-                  icon: IconlyIcon(IconlyCurved.Bookmark,
-                      color: CantonColors.iconSecondary),
+                  icon: IconlyIcon(
+                    IconlyLine.Bookmark,
+                    color: CantonColors.iconSecondary,
+                  ),
                   iconColor: cantonGrey[600],
                   onPressed: () {},
                 ),
