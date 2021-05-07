@@ -4,23 +4,20 @@ A simple news app that incorporates the [newsapi.org](newsapi.org) api all built
 
 ## Features
 
-- Top Stories Feed: Gett top stories from around the globe.
-- Search by category: Look at different articles by category such as Business, Health, etc.
-- COVID-19 Section (WIP): A special section for Coronavirus news.
+- _Top Stories Feed_: Get top stories from around the globe.
+- _Search by category_: Look at different articles by category such as Business, Health, etc.
+- _COVID-19 Section (WIP)_: A designated section for Coronavirus news.
 
 ## TODO
 
 #### Create
-- [ ] Create bookmark/save article functionality
-- [ ] Create COVID-19 View and card functionality
-- [ ] Update "article_view" UI
+- [X] Create COVID-19 View and card functionality
 - [X] Make public
 
 #### Fixes
-- [ ] Fix search functionality
-- [ ] Fix header on "source_view"
-- [ ] Fix "top_stories_view" / "source_view" glitch
-- [ ] Fix "source_card" border
+- [X] Fix header on "source_view"
+- [ ] Fix "source_view" / "COVID19_view" glitch
+- [X] Fix "source_card" border
 
 
 ## Dependencies
