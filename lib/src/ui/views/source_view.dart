@@ -2,7 +2,7 @@ import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/source.dart';
-import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
+import 'package:canton_news_app/src/ui/providers/news_source_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
@@ -23,14 +23,9 @@ class _SourceViewState extends State<SourceView> {
   @override
   void initState() {
     super.initState();
-    final _environmentConfig = EnvironmentConfig();
-    String sourceOrCategory = widget.isSource ? 'sources' : 'category';
-    String query = widget.source.name.replaceAll(' ', '-');
-
-    /// Only allows articles from the last week to be returned.
-    futurePath =
-        'https://newsapi.org/v2/top-headlines?$sourceOrCategory=$query&apiKey=${_environmentConfig.newsApiKey}';
-    context.refresh(newsFutureProvider);
+    print(widget.source.name.replaceAll(' ', '-'));
+    sourcePath = widget.source.name.replaceAll(' ', '-');
+    context.refresh(newsSourceProvider);
   }
 
   @override
@@ -43,13 +38,13 @@ class _SourceViewState extends State<SourceView> {
   Widget _content(BuildContext context) {
     return Consumer(
       builder: (context, watch, child) {
-        return watch(newsFutureProvider).when(
+        return watch(newsSourceProvider).when(
           loading: () => Loading(),
           error: (e, s) {
             if (e is NewsExceptions) {
-              return ErrorBody(e.message);
+              return ErrorBody(e.message, newsSourceProvider);
             }
-            return UnexpectedError(newsFutureProvider);
+            return UnexpectedError(newsSourceProvider);
           },
           data: (articles) {
             return CustomScrollView(
@@ -57,7 +52,7 @@ class _SourceViewState extends State<SourceView> {
                 _header(context),
                 CupertinoSliverRefreshControl(
                   onRefresh: () async =>
-                      await context.refresh(newsFutureProvider),
+                      await context.refresh(newsSourceProvider),
                 ),
                 ArticleList(articles, false),
                 ArticleGrid(articles),
@@ -73,7 +68,6 @@ class _SourceViewState extends State<SourceView> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: cantonGrey[100],
       title: Text(
         widget.source.name,
         style: Theme.of(context)
