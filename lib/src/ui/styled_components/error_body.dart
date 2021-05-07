@@ -1,11 +1,11 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ErrorBody extends ConsumerWidget {
   final String message;
+  final AutoDisposeFutureProvider provider;
 
-  ErrorBody(this.message);
+  ErrorBody(this.message, this.provider);
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     return Container(
@@ -29,7 +29,7 @@ class ErrorBody extends ConsumerWidget {
           textColor: cantonGrey[100],
           containerWidth: MediaQuery.of(context).size.width / 2 - 74,
           enabled: true,
-          onPressed: () => context.refresh(newsFutureProvider),
+          onPressed: () => context.refresh(provider),
         ),
       ],
     ));
