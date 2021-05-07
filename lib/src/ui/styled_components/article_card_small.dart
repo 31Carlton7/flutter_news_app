@@ -47,27 +47,15 @@ class ArticleCardSmall extends StatelessWidget {
               ),
             ),
             Spacer(),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: Text(
-                    article.getPublishedAtFormattedTime,
-                    style: Theme.of(context).textTheme.caption.copyWith(
-                          color: CantonColors.textTertiary,
-                          fontWeight: FontWeight.w400,
-                        ),
-                  ),
-                ),
-                Spacer(),
-                CantonActionButton(
-                  icon: IconlyIcon(
-                    IconlyLine.Bookmark,
-                    color: CantonColors.iconSecondary,
-                  ),
-                  onPressed: () {},
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Text(
+                article.getPublishedAtFormattedTime,
+                style: Theme.of(context).textTheme.caption.copyWith(
+                      color: CantonColors.textTertiary,
+                      fontWeight: FontWeight.w400,
+                    ),
+              ),
             ),
           ],
         ),

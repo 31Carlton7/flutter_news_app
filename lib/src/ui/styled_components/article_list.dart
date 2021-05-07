@@ -16,7 +16,6 @@ class ArticleList extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (articles.length != 0 && index <= 5) {
-            print(index);
             switch (index) {
               case 0:
                 return showCovid19Card ? COVID19Card() : Container();

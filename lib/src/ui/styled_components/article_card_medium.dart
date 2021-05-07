@@ -61,26 +61,14 @@ class ArticleCardMedium extends StatelessWidget {
               ),
               Flexible(
                 flex: 1,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    ClipSquircleBorder(
-                      radius: 40,
-                      child: Image.network(
-                        article.getImageUrl,
-                        fit: BoxFit.cover,
-                        width: 100,
-                        height: 100,
-                      ),
-                    ),
-                    CantonActionButton(
-                      icon: IconlyIcon(
-                        IconlyLine.Bookmark,
-                        color: CantonColors.textSecondary,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ],
+                child: ClipSquircleBorder(
+                  radius: 40,
+                  child: Image.network(
+                    article.getImageUrl,
+                    fit: BoxFit.cover,
+                    width: 100,
+                    height: 100,
+                  ),
                 ),
               ),
             ],

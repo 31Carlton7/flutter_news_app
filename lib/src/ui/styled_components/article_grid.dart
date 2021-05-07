@@ -12,18 +12,20 @@ class ArticleGrid extends StatelessWidget {
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           if (articles.length != 0) {
-            if (index == -1) {
-              return Text(
-                'Error :(',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(color: CantonColors.textTertiary),
-              );
-            } else {
-              index -= 5;
-              return ArticleCardSmall(articles[index + 5]);
+            switch (index) {
+              case 14:
+              case 15:
+              case 16:
+              case 17:
+              case 18:
+              case 19:
+              case 20:
+                return Container();
+
+              default:
+                ArticleCardSmall(articles[index + 6]);
             }
+            return ArticleCardSmall(articles[index + 6]);
           } else {
             return Text(
               'No Articles :(',

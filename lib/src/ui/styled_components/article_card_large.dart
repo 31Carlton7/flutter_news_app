@@ -43,29 +43,15 @@ class ArticleCardLarge extends StatelessWidget {
                     .copyWith(color: CantonColors.textPrimary),
               ),
             ),
-            Row(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                  child: Text(
-                    article.getPublishedAtFormattedTime,
-                    style: Theme.of(context).textTheme.caption.copyWith(
-                          color: CantonColors.iconSecondary,
-                          fontWeight: FontWeight.w400,
-                        ),
-                  ),
-                ),
-                Spacer(),
-                CantonActionButton(
-                  icon: IconlyIcon(
-                    IconlyLine.Bookmark,
-                    color: CantonColors.iconSecondary,
-                  ),
-                  iconColor: cantonGrey[600],
-                  onPressed: () {},
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+              child: Text(
+                article.getPublishedAtFormattedTime,
+                style: Theme.of(context).textTheme.caption.copyWith(
+                      color: CantonColors.iconSecondary,
+                      fontWeight: FontWeight.w400,
+                    ),
+              ),
             ),
           ],
         ),
