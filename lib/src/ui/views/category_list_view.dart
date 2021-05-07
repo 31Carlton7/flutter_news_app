@@ -21,12 +21,10 @@ class _CategoryListViewState extends State<CategoryListView> {
     'Business',
     'Entertainment',
     'General',
-    'Politics',
     'Health',
     'Science',
     'Sports',
     'Technology',
-    'Covid19',
   ];
 
   Widget _content(BuildContext context) {
@@ -58,13 +56,14 @@ class _CategoryListViewState extends State<CategoryListView> {
   Widget _body() {
     return Expanded(
       child: ListView.separated(
-          itemBuilder: (context, index) {
-            return CategoryCard(Source(category: categories[index]));
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 7);
-          },
-          itemCount: 9),
+        itemBuilder: (context, index) {
+          return CategoryCard(Source(category: categories[index]));
+        },
+        separatorBuilder: (context, index) {
+          return SizedBox(height: 7);
+        },
+        itemCount: 7,
+      ),
     );
   }
 }
