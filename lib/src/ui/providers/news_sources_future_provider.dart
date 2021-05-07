@@ -6,7 +6,7 @@ import 'news_service_provider.dart';
 
 final _environmentConfig = EnvironmentConfig();
 
-final newsSourcesFutureProvider =
+final newsSourcesProvider =
     FutureProvider.autoDispose<List<Source>>((ref) async {
   ref.maintainState = true;
 
