@@ -1,7 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
-import 'package:canton_news_app/src/ui/providers/news_future_provider.dart';
+import 'package:canton_news_app/src/ui/providers/news_covid19_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
@@ -18,10 +17,6 @@ class _COVID19ViewState extends State<COVID19View> {
   @override
   void initState() {
     super.initState();
-    final _environmentConfig = EnvironmentConfig();
-
-    futurePath =
-        'https://newsapi.org/v2/top-headlines?q=coronavirus&apiKey=${_environmentConfig.newsApiKey}';
   }
 
   @override
@@ -34,13 +29,13 @@ class _COVID19ViewState extends State<COVID19View> {
   Widget _content(BuildContext context) {
     return Consumer(
       builder: (context, watch, child) {
-        return watch(newsFutureProvider).when(
+        return watch(newsCOVID19Provider).when(
           loading: () => Loading(),
           error: (e, s) {
             if (e is NewsExceptions) {
-              return ErrorBody(e.message);
+              return ErrorBody(e.message, newsCOVID19Provider);
             }
-            return UnexpectedError(newsFutureProvider);
+            return UnexpectedError(newsCOVID19Provider);
           },
           data: (articles) {
             return CustomScrollView(
@@ -48,7 +43,7 @@ class _COVID19ViewState extends State<COVID19View> {
                 _header(context),
                 CupertinoSliverRefreshControl(
                   onRefresh: () async =>
-                      await context.refresh(newsFutureProvider),
+                      await context.refresh(newsCOVID19Provider),
                 ),
                 ArticleList(articles, false),
                 ArticleGrid(articles),
@@ -64,7 +59,6 @@ class _COVID19ViewState extends State<COVID19View> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: cantonGrey[100],
       title: Text(
         'Coronavirus',
         style: Theme.of(context)
