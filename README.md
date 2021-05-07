@@ -16,7 +16,7 @@ A simple news app that incorporates the [newsapi.org](newsapi.org) api all built
 
 #### Fixes
 - [X] Fix header on "source_view"
-- [ ] Fix "source_view" / "COVID19_view" glitch
+- [ ] Fix "source_view" glitch
 - [X] Fix "source_card" border
 
 
