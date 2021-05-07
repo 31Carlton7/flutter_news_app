@@ -18,7 +18,6 @@ class _TopStoriesViewState extends State<TopStoriesView> {
   @override
   void initState() {
     super.initState();
-    futurePath = null;
     context.refresh(newsFutureProvider);
   }
 
@@ -35,7 +34,7 @@ class _TopStoriesViewState extends State<TopStoriesView> {
         return watch(newsFutureProvider).when(
           error: (e, s) {
             if (e is NewsExceptions) {
-              return ErrorBody(e.message);
+              return ErrorBody(e.message, newsFutureProvider);
             }
             return UnexpectedError(newsFutureProvider);
           },
@@ -63,32 +62,21 @@ class _TopStoriesViewState extends State<TopStoriesView> {
       floating: true,
       elevation: 0,
       backgroundColor: CantonColors.bgCanvas,
-      flexibleSpace: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          CantonActionButton(
-            icon: IconlyIcon(
-              IconlyBold.Filter1,
-              color: CantonColors.textSecondary,
-            ),
-            onPressed: () =>
-                CantonMethods.viewTransition(context, CategoryListView()),
-          ),
-          Text(
-            'Top Stories',
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(color: CantonColors.green),
-          ),
-          CantonActionButton(
-            icon: IconlyIcon(
-              IconlyBold.Bookmark,
-              color: CantonColors.iconSecondary,
-            ),
-            onPressed: () {},
-          ),
-        ],
+      title: Text(
+        'Top Stories',
+        style: Theme.of(context)
+            .textTheme
+            .headline5
+            .copyWith(color: CantonColors.green),
+      ),
+      centerTitle: true,
+      leading: CantonActionButton(
+        icon: IconlyIcon(
+          IconlyBold.Filter1,
+          color: CantonColors.textSecondary,
+        ),
+        onPressed: () =>
+            CantonMethods.viewTransition(context, CategoryListView()),
       ),
     );
   }
