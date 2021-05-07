@@ -25,7 +25,7 @@ dependencies:
     sdk: flutter
   canton_design_system:
     git:
-      url: git://github.com/31Carlton7/canton_design_system.git
+      url: https://github.com/31Carlton7/canton_design_system.git
       ref: master
   flutter_riverpod:
   persistent_bottom_nav_bar:
