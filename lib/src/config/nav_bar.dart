@@ -36,12 +36,12 @@ class CurrentScreen extends StatelessWidget {
       context,
       controller: _controller,
       screens: views,
-      backgroundColor: cantonGrey[100],
+      backgroundColor: CantonColors.bgPrimary,
       resizeToAvoidBottomInset: true,
       navBarStyle: NavBarStyle.style12,
       navBarHeight: MediaQuery.of(context).size.height / 16,
       decoration: NavBarDecoration(
-        colorBehindNavBar: cantonGrey[100],
+        colorBehindNavBar: CantonColors.bgPrimary,
       ),
       items: _navBarsItems(),
       itemAnimationProperties: const ItemAnimationProperties(
