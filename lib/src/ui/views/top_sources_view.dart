@@ -17,21 +17,20 @@ class TopSourcesView extends ConsumerWidget {
   }
 
   Widget _content(BuildContext context, ScopedReader watch) {
-    return watch(newsSourcesFutureProvider).when(
+    return watch(newsSourcesProvider).when(
       loading: () => Loading(),
       error: (e, s) {
         if (e is NewsExceptions) {
-          return ErrorBody(e.message);
+          return ErrorBody(e.message, newsSourcesProvider);
         }
-        return UnexpectedError(newsSourcesFutureProvider);
+        return UnexpectedError(newsSourcesProvider);
       },
       data: (sources) {
         return CustomScrollView(
           slivers: [
             _header(context),
             CupertinoSliverRefreshControl(
-              onRefresh: () async =>
-                  await context.refresh(newsSourcesFutureProvider),
+              onRefresh: () async => await context.refresh(newsSourcesProvider),
             ),
             _sourcesList(context, sources),
           ],
@@ -44,19 +43,14 @@ class TopSourcesView extends ConsumerWidget {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: cantonGrey[100],
-      flexibleSpace: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(
-            'Sources',
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(color: CantonColors.green),
-          ),
-        ],
+      title: Text(
+        'Sources',
+        style: Theme.of(context)
+            .textTheme
+            .headline5
+            .copyWith(color: CantonColors.green),
       ),
+      centerTitle: true,
     );
   }
 
