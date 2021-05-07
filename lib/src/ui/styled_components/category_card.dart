@@ -1,6 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/models/source.dart';
-import 'package:canton_news_app/src/ui/views/source_view.dart';
+import 'package:canton_news_app/src/ui/views/category_view.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard(this.name);
@@ -11,8 +11,7 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          CantonMethods.viewTransition(context, SourceView(name, false)),
+      onTap: () => CantonMethods.viewTransition(context, CategoryView(name)),
       child: Card(
         child: Padding(
           padding: EdgeInsets.all(10),
