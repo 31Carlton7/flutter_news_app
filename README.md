@@ -10,14 +10,9 @@ A simple news app that incorporates the [newsapi.org](newsapi.org) api all built
 
 ## TODO
 
-#### Create
-- [X] Create COVID-19 View and card functionality
-- [X] Make public
-
 #### Fixes
-- [X] Fix header on "source_view"
+- [X] Fix NavBar
 - [ ] Fix "source_view" glitch
-- [X] Fix "source_card" border
 
 
 ## Dependencies
@@ -30,6 +25,14 @@ A simple news app that incorporates the [newsapi.org](newsapi.org) api all built
  - intl:
  - liquid_pull_to_refresh:
  - shared_preferences:
+
+## Screenshots
+<div>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412261-05cade00-b667-11eb-8094-ae290d4776ef.png"> </img>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412271-1bd89e80-b667-11eb-9eab-1e92c54c06f0.png"> </img> 
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412280-285cf700-b667-11eb-9b54-665c959d92aa.png"> </img>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412324-52161e00-b667-11eb-96c1-18a5acf01186.png"> </img>
+</div>
 
 ## Socials
 
