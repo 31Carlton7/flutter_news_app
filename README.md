@@ -7,25 +7,14 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 - _Top Stories Feed:_ Get top stories from around the globe.
 - _Search by category:_ Look at different articles by category such as Business, Health, etc.
 - _COVID-19 Section:_ A designated section for Coronavirus news.
-- _Dark mode:_ Dark theme and light theme support
-
-## TODO
-
-#### Fixes
-- [ ] Fix Nav Bar
-- [X] Fix "source_view" Range error
-
+- _Dark mode(WIP):_ Dark theme and light theme support
 
 ## Dependencies
 
  - canton_design_system: [Link](https://github.com/31Carlton7/canton_design_system) to repository
  - flutter_riverpod:
- - persistent_bottom_nav_bar:
- - cupertino_icons:
  - dio:
  - intl:
- - liquid_pull_to_refresh:
- - shared_preferences:
 
 ## Screenshots
 <div>
