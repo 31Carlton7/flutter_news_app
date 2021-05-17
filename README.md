@@ -11,7 +11,7 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 ## TODO
 
 #### Fixes
-- [X] Fix NavBar
+- [ ] Fix NavBar
 - [ ] Fix "source_view" glitch
 
 
