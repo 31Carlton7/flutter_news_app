@@ -10,6 +10,12 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 - _COVID-19 Section:_ A designated section for Coronavirus news.
 - _Dark mode(WIP):_ Dark theme and light theme support
 
+## Getting started
+1. Obtain API key from [newsapi.org](newsapi.org)
+2. Navigate to .vscode > launch.json > and input your api key where it says "YOUR_API_KEY_HERE"
+3. Navigate to lib > src > config > environment_config.dart > and input your api key where it says "YOUR_API_KEY_HERE"
+4. Run app
+
 ## Dependencies
 
  - canton_design_system: [Link](https://github.com/31Carlton7/canton_design_system) to repository
