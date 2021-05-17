@@ -13,7 +13,7 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 #### Fixes
 - [ ] Fix Nav Bar
-- [ ] Fix "source_view" Range error
+- [X] Fix "source_view" Range error
 
 
 ## Dependencies
