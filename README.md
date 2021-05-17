@@ -26,8 +26,6 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118422701-b9e15e80-b691-11eb-8aef-fe8fe53b670d.png"> </img>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118422729-c665b700-b691-11eb-994b-ef3f73321f58.png"> </img>
 </div>
-![IMG_6F87B938CABA-1]()
-
 
 ## Socials
 
