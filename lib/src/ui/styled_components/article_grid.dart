@@ -13,7 +13,6 @@ class ArticleGrid extends StatelessWidget {
     return SliverGrid(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          print(index);
           if (articles.length != 0) {
             switch (index) {
               case 14:
