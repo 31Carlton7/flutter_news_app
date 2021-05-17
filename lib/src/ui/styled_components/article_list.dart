@@ -6,9 +6,9 @@ import 'covid19_card.dart';
 import 'article_card_large.dart';
 
 class ArticleList extends StatelessWidget {
-  const ArticleList(this.articles, this.showCovid19Card);
+  const ArticleList(this.articles, this.showCovid19Card, this.source);
   final List<Article> articles;
-  final bool showCovid19Card;
+  final bool showCovid19Card, source;
 
   @override
   Widget build(BuildContext context) {
@@ -20,24 +20,12 @@ class ArticleList extends StatelessWidget {
               case 0:
                 return showCovid19Card ? COVID19Card() : Container();
               case 1:
-                return ArticleCardLarge(articles[index]);
+                return ArticleCardLarge(articles[index], source);
               default:
-                return ArticleCardMedium(articles[index]);
+                return ArticleCardMedium(articles[index], source);
             }
           } else {
-            if (index == 0) {
-              return Center(
-                child: Text(
-                  'No Articles :(',
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline5
-                      .copyWith(color: CantonColors.textTertiary),
-                ),
-              );
-            } else {
-              return Container();
-            }
+            return Container();
           }
         },
 

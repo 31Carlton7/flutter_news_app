@@ -45,8 +45,8 @@ class _COVID19ViewState extends State<COVID19View> {
                   onRefresh: () async =>
                       await context.refresh(newsCOVID19Provider),
                 ),
-                ArticleList(articles, false),
-                ArticleGrid(articles),
+                ArticleList(articles, false, false),
+                ArticleGrid(articles, false),
               ],
             );
           },

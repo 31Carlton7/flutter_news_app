@@ -3,15 +3,17 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/views/article_view.dart';
 
 class ArticleCardMedium extends StatelessWidget {
-  const ArticleCardMedium(this.article);
+  const ArticleCardMedium(this.article, this.source);
 
   @required
   final Article article;
+  final bool source;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
+      onTap: () =>
+          CantonMethods.viewTransition(context, ArticleView(article, source)),
       child: Card(
         shape: const SquircleBorder(),
         child: Padding(
@@ -37,8 +39,10 @@ class ArticleCardMedium extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width - 64,
                         child: Text(
-                          article.title
-                              .substring(0, article.title.indexOf(' - ')),
+                          !source
+                              ? article.title
+                                  .substring(0, article.title.indexOf(' - '))
+                              : article.title,
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
@@ -50,7 +54,9 @@ class ArticleCardMedium extends StatelessWidget {
                         child: Text(
                           article.getPublishedAtFormattedTime,
                           style: Theme.of(context).textTheme.caption.copyWith(
-                                color: CantonColors.textTertiary,
+                                color: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryVariant,
                                 fontWeight: FontWeight.w400,
                               ),
                         ),

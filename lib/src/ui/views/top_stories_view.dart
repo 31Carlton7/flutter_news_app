@@ -47,8 +47,8 @@ class _TopStoriesViewState extends State<TopStoriesView> {
                   onRefresh: () async =>
                       await context.refresh(newsFutureProvider),
                 ),
-                ArticleList(articles, true),
-                ArticleGrid(articles),
+                ArticleList(articles, true, false),
+                ArticleGrid(articles, false),
               ],
             );
           },

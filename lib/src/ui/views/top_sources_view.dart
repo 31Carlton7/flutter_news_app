@@ -65,10 +65,9 @@ class TopSourcesView extends ConsumerWidget {
             Center(
               child: Text(
                 'Error :(',
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5
-                    .copyWith(color: CantonColors.textSecondary),
+                style: Theme.of(context).textTheme.headline5.copyWith(
+                      color: Theme.of(context).colorScheme.secondaryVariant,
+                    ),
               ),
             );
           }

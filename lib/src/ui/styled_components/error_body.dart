@@ -16,10 +16,9 @@ class ErrorBody extends ConsumerWidget {
         Center(
           child: Text(
             message,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: cantonGrey[600]),
+            style: Theme.of(context).textTheme.headline6.copyWith(
+                  color: Theme.of(context).colorScheme.secondaryVariant,
+                ),
           ),
         ),
         SizedBox(height: 12),

@@ -3,8 +3,9 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:intl/intl.dart';
 
 class ArticleView extends StatelessWidget {
-  const ArticleView(this.article) : super();
+  const ArticleView(this.article, this.source) : super();
   final Article article;
+  final bool source;
 
   @override
   Widget build(BuildContext context) {
@@ -52,8 +53,10 @@ class ArticleView extends StatelessWidget {
                 ),
           ),
           CantonHeaderButton(
-            icon: Icon(FeatherIcons.moreVertical,
-                color: Theme.of(context).colorScheme.secondaryVariant),
+            icon: Icon(
+              FeatherIcons.moreVertical,
+              color: Theme.of(context).colorScheme.secondaryVariant,
+            ),
             onPressed: () {},
           ),
         ],
@@ -66,7 +69,10 @@ class ArticleView extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 27),
-          child: Text(article.title.substring(0, article.title.indexOf(' - ')),
+          child: Text(
+              !source
+                  ? article.title.substring(0, article.title.indexOf(' - '))
+                  : article.title,
               style: Theme.of(context).textTheme.headline4),
         ),
         article.getImageUrl != null ? SizedBox(height: 12) : Container(),

@@ -16,8 +16,6 @@ class NewsService {
       final results = List<Map<String, dynamic>>.from(
         response.data['articles'],
       );
-      print(path);
-      print(results);
 
       final List<Article> articles = results
           .map((articleData) => Article.fromMap(articleData))

@@ -20,8 +20,8 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: d3cb58de8d2548595b6134b0a3d694e6617f0768
-      url: "git://github.com/31Carlton7/canton_design_system.git"
+      resolved-ref: "4115e50f6d138b44cb2750a59dce43c93d7259c0"
+      url: "https://github.com/31Carlton7/canton_design_system.git"
     source: git
     version: "0.0.1"
   characters:

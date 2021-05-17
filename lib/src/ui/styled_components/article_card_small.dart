@@ -3,15 +3,17 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/views/article_view.dart';
 
 class ArticleCardSmall extends StatelessWidget {
-  const ArticleCardSmall(this.article);
+  const ArticleCardSmall(this.article, this.source);
 
   @required
   final Article article;
+  final bool source;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
+      onTap: () =>
+          CantonMethods.viewTransition(context, ArticleView(article, source)),
       child: Card(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -51,7 +53,7 @@ class ArticleCardSmall extends StatelessWidget {
               child: Text(
                 article.getPublishedAtFormattedTime,
                 style: Theme.of(context).textTheme.caption.copyWith(
-                      color: CantonColors.textTertiary,
+                      color: Theme.of(context).colorScheme.secondaryVariant,
                       fontWeight: FontWeight.w400,
                     ),
               ),
@@ -64,7 +66,7 @@ class ArticleCardSmall extends StatelessWidget {
 
   /// Adds '...' to end of string if string word length is greater than 15
   String shortenLengthenOfTitle(String string) {
-    string = string.substring(0, string.indexOf(' - '));
+    string = !source ? string.substring(0, string.indexOf(' - ')) : string;
     if (string.split(' ').length >= 15) {
       return CantonMethods.addDotsToString(string, 15);
     } else {

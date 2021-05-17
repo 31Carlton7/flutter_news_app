@@ -13,10 +13,9 @@ class UnexpectedError extends StatelessWidget {
           Text(
             'Oops, something unexpected happened :(',
             textAlign: TextAlign.center,
-            style: Theme.of(context)
-                .textTheme
-                .headline5
-                .copyWith(color: cantonGrey[600]),
+            style: Theme.of(context).textTheme.headline5.copyWith(
+                  color: Theme.of(context).colorScheme.secondaryVariant,
+                ),
           ),
           SizedBox(height: 20),
           CantonPrimaryButton(

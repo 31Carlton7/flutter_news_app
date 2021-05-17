@@ -2,10 +2,13 @@ import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_source_provider.dart';
+import 'package:canton_news_app/src/ui/styled_components/article_card_large.dart';
+import 'package:canton_news_app/src/ui/styled_components/article_card_medium.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
 import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
+import 'package:canton_news_app/src/ui/views/article_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -21,7 +24,6 @@ class _SourceViewState extends State<SourceView> {
   @override
   void initState() {
     super.initState();
-    print(widget.source.name.replaceAll(' ', '-'));
     sourcePath = widget.source.name.replaceAll(' ', '-');
     context.refresh(newsSourceProvider);
   }
@@ -52,8 +54,12 @@ class _SourceViewState extends State<SourceView> {
                   onRefresh: () async =>
                       await context.refresh(newsSourceProvider),
                 ),
-                ArticleList(articles, false),
-                ArticleGrid(articles),
+
+                /// Sets ChildCount to one incase of error and needs to display on Item in the list
+                /// This also allows the use of the [RefreshList] widget, to refresh the feed.
+
+                ArticleList(articles, false, true),
+                ArticleGrid(articles, true),
               ],
             );
           },
