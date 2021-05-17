@@ -45,7 +45,7 @@ class ArticleView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          CantonBackButton(),
+          CantonBackButton(isClear: true),
           Text(
             article.name,
             style: Theme.of(context).textTheme.headline6.copyWith(
@@ -53,10 +53,8 @@ class ArticleView extends StatelessWidget {
                 ),
           ),
           CantonHeaderButton(
-            icon: Icon(
-              FeatherIcons.moreVertical,
-              color: Theme.of(context).colorScheme.secondaryVariant,
-            ),
+            backgroundColor: CantonColors.transparent,
+            icon: Container(),
             onPressed: () {},
           ),
         ],

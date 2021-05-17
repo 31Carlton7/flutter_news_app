@@ -38,11 +38,7 @@ class ArticleGrid extends StatelessWidget {
 
         /// Sets ChildCount to one incase of error and needs to display on Item in the list
         /// This also allows the use of the [RefreshList] widget, to refresh the feed.
-        childCount: articles.length != 0
-            ? !source
-                ? articles.length - 1
-                : articles.length - 6
-            : 1,
+        childCount: articles.length != 0 ? articles.length - 6 : 1,
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,

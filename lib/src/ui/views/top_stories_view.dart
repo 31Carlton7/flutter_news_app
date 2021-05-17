@@ -23,9 +23,7 @@ class _TopStoriesViewState extends State<TopStoriesView> {
 
   @override
   Widget build(BuildContext context) {
-    return CantonScaffold(
-      body: _content(context),
-    );
+    return _content(context);
   }
 
   Widget _content(BuildContext context) {

@@ -11,9 +11,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class TopSourcesView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    return CantonScaffold(
-      body: _content(context, watch),
-    );
+    return _content(context, watch);
   }
 
   Widget _content(BuildContext context, ScopedReader watch) {

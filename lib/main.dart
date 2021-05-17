@@ -1,6 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/config/constants.dart';
-import 'package:canton_news_app/src/config/nav_bar.dart';
+import 'package:canton_news_app/src/ui/views/current_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: kAppTitle,
       primaryLightColor: CantonColors.green,
       primaryDarkColor: CantonDarkColors.green,
-      home: CurrentScreen(),
+      home: CurrentView(),
     );
   }
 }
