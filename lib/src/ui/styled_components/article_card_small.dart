@@ -32,14 +32,13 @@ class ArticleCardSmall extends StatelessWidget {
                   Text(
                     article.name,
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: CantonColors.green,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
                   Text(
                     shortenLengthenOfTitle(article.title),
                     style: Theme.of(context).textTheme.bodyText2.copyWith(
-                          color: CantonColors.textPrimary,
                           fontWeight: FontWeight.w500,
                         ),
                   ),

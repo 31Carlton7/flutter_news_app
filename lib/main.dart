@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   /// Lock screen orientation to vertical
@@ -18,10 +18,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
+    return CantonApp(
       title: kAppTitle,
-      theme: cantonLightTheme().copyWith(primaryColor: CantonColors.green),
+      primaryLightColor: CantonColors.green,
+      primaryDarkColor: CantonDarkColors.green,
       home: CurrentScreen(),
     );
   }

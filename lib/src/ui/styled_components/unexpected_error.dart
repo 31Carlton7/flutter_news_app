@@ -21,8 +21,8 @@ class UnexpectedError extends StatelessWidget {
           SizedBox(height: 20),
           CantonPrimaryButton(
             buttonText: 'Retry',
-            containerColor: CantonColors.green,
-            textColor: cantonGrey[100],
+            containerColor: Theme.of(context).primaryColor,
+            textColor: CantonColors.white,
             containerWidth: MediaQuery.of(context).size.width / 2 - 74,
             enabled: true,
             onPressed: () => context.refresh(provider),

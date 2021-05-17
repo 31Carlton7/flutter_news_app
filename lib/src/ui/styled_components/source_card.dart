@@ -11,8 +11,7 @@ class SourceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          CantonMethods.viewTransition(context, SourceView(source, true)),
+      onTap: () => CantonMethods.viewTransition(context, SourceView(source)),
       child: Card(
         child: Padding(
           padding: EdgeInsets.all(10),
@@ -25,18 +24,13 @@ class SourceCard extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headline5
-                      .copyWith(color: CantonColors.green),
+                      .copyWith(color: Theme.of(context).primaryColor),
                 ),
               ),
               SizedBox(width: 7),
               Expanded(
-                child: Text(
-                  source.name,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      .copyWith(color: CantonColors.textPrimary),
-                ),
+                child: Text(source.name,
+                    style: Theme.of(context).textTheme.headline6),
               ),
             ],
           ),

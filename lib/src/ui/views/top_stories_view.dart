@@ -61,19 +61,19 @@ class _TopStoriesViewState extends State<TopStoriesView> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: CantonColors.bgCanvas,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         'Top Stories',
         style: Theme.of(context)
             .textTheme
             .headline5
-            .copyWith(color: CantonColors.green),
+            .copyWith(color: Theme.of(context).primaryColor),
       ),
       centerTitle: true,
       leading: CantonActionButton(
         icon: IconlyIcon(
           IconlyBold.Filter1,
-          color: CantonColors.textSecondary,
+          color: Theme.of(context).colorScheme.secondaryVariant,
         ),
         onPressed: () =>
             CantonMethods.viewTransition(context, CategoryListView()),

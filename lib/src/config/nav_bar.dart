@@ -11,18 +11,18 @@ class CurrentScreen extends StatelessWidget {
     List<PersistentBottomNavBarItem> _navBarsItems() {
       return [
         PersistentBottomNavBarItem(
-          icon:
-              IconlyIcon(IconlyBold.Home, size: 24, color: CantonColors.green),
+          icon: IconlyIcon(IconlyBold.Home,
+              size: 24, color: Theme.of(context).primaryColor),
           title: '',
-          activeColorPrimary: CantonColors.green,
-          inactiveColorPrimary: CantonColors.iconTertiary,
+          activeColorPrimary: Theme.of(context).primaryColor,
+          inactiveColorPrimary: Theme.of(context).colorScheme.secondaryVariant,
         ),
         PersistentBottomNavBarItem(
           icon: IconlyIcon(IconlyBold.Chart,
-              size: 24, color: CantonColors.iconTertiary),
+              size: 24, color: Theme.of(context).colorScheme.secondaryVariant),
           title: '',
-          activeColorPrimary: CantonColors.green,
-          inactiveColorPrimary: CantonColors.iconTertiary,
+          activeColorPrimary: Theme.of(context).primaryColor,
+          inactiveColorPrimary: Theme.of(context).colorScheme.secondaryVariant,
         ),
       ];
     }
@@ -36,12 +36,12 @@ class CurrentScreen extends StatelessWidget {
       context,
       controller: _controller,
       screens: views,
-      backgroundColor: CantonColors.bgPrimary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       resizeToAvoidBottomInset: true,
       navBarStyle: NavBarStyle.style12,
       navBarHeight: MediaQuery.of(context).size.height / 16,
       decoration: NavBarDecoration(
-        colorBehindNavBar: CantonColors.bgPrimary,
+        colorBehindNavBar: Theme.of(context).scaffoldBackgroundColor,
       ),
       items: _navBarsItems(),
       itemAnimationProperties: const ItemAnimationProperties(

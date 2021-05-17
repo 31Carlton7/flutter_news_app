@@ -1,5 +1,4 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_source_provider.dart';
@@ -11,10 +10,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SourceView extends StatefulWidget {
-  const SourceView(this.source, this.isSource);
+  const SourceView(this.source);
   @required
   final Source source;
-  final bool isSource;
   @override
   _SourceViewState createState() => _SourceViewState();
 }
@@ -68,12 +66,13 @@ class _SourceViewState extends State<SourceView> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         widget.source.name,
         style: Theme.of(context)
             .textTheme
             .headline5
-            .copyWith(color: CantonColors.green),
+            .copyWith(color: Theme.of(context).primaryColor),
       ),
       leading: CantonBackButton(isClear: true),
       centerTitle: true,

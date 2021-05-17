@@ -18,17 +18,13 @@ class COVID19Card extends StatelessWidget {
                       TextSpan(
                         text: 'COVID-19 News: ',
                         style: Theme.of(context).textTheme.bodyText2.copyWith(
-                              color: CantonColors.green,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.w500,
                             ),
                       ),
                       TextSpan(
-                        text: 'Get the latest coverage of the coronavirus',
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText2
-                            .copyWith(color: CantonColors.textPrimary),
-                      ),
+                          text: 'Get the latest coverage of the coronavirus',
+                          style: Theme.of(context).textTheme.bodyText2),
                     ],
                   ),
                 ),
@@ -36,7 +32,7 @@ class COVID19Card extends StatelessWidget {
               CantonHeaderButton(
                 icon: IconlyIcon(
                   IconlyBold.ArrowRight1,
-                  color: CantonColors.iconSecondary,
+                  color: Theme.of(context).colorScheme.secondaryVariant,
                 ),
                 radius: 35,
                 size: 55.0,

@@ -43,6 +43,7 @@ class TopSourcesView extends ConsumerWidget {
     return SliverAppBar(
       floating: true,
       elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         'Sources',
         style: Theme.of(context)

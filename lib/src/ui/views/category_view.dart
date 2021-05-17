@@ -1,9 +1,7 @@
 import 'package:canton_design_system/canton_design_system.dart';
-import 'package:canton_news_app/src/config/environment_config.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_category_provider.dart';
-import 'package:canton_news_app/src/ui/providers/news_source_provider.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
@@ -67,13 +65,13 @@ class _CategoryViewState extends State<CategoryView> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
-      backgroundColor: CantonColors.bgPrimary,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         widget.source.category,
         style: Theme.of(context)
             .textTheme
             .headline5
-            .copyWith(color: CantonColors.green),
+            .copyWith(color: Theme.of(context).primaryColor),
       ),
       leading: CantonBackButton(isClear: true),
       centerTitle: true,

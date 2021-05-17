@@ -24,18 +24,13 @@ class CategoryCard extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .headline5
-                      .copyWith(color: CantonColors.green),
+                      .copyWith(color: Theme.of(context).primaryColor),
                 ),
               ),
               SizedBox(width: 7),
               Expanded(
-                child: Text(
-                  name.category,
-                  style: Theme.of(context)
-                      .textTheme
-                      .headline6
-                      .copyWith(color: CantonColors.textPrimary),
-                ),
+                child: Text(name.category,
+                    style: Theme.of(context).textTheme.headline6),
               ),
             ],
           ),

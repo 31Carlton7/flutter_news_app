@@ -48,12 +48,12 @@ class ArticleView extends StatelessWidget {
           Text(
             article.name,
             style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: CantonColors.green,
+                  color: Theme.of(context).primaryColor,
                 ),
           ),
           CantonHeaderButton(
             icon: Icon(FeatherIcons.moreVertical,
-                color: CantonColors.iconSecondary),
+                color: Theme.of(context).colorScheme.secondaryVariant),
             onPressed: () {},
           ),
         ],
@@ -66,13 +66,8 @@ class ArticleView extends StatelessWidget {
       children: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 27),
-          child: Text(
-            article.title.substring(0, article.title.indexOf(' - ')),
-            style: Theme.of(context)
-                .textTheme
-                .headline4
-                .copyWith(color: cantonGrey[900]),
-          ),
+          child: Text(article.title.substring(0, article.title.indexOf(' - ')),
+              style: Theme.of(context).textTheme.headline4),
         ),
         article.getImageUrl != null ? SizedBox(height: 12) : Container(),
         Image.network(
@@ -84,20 +79,11 @@ class ArticleView extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 17),
           child: Column(
             children: [
+              Text(authorName(), style: Theme.of(context).textTheme.button),
               Text(
-                authorName(),
-                style: Theme.of(context)
-                    .textTheme
-                    .button
-                    .copyWith(color: cantonGrey[900]),
-              ),
-              Text(
-                DateFormat.yMMMd().format(DateTime.parse(article.publishedAt)),
-                style: Theme.of(context)
-                    .textTheme
-                    .bodyText1
-                    .copyWith(color: cantonGrey[900]),
-              )
+                  DateFormat.yMMMd()
+                      .format(DateTime.parse(article.publishedAt)),
+                  style: Theme.of(context).textTheme.bodyText1)
             ],
           ),
         ),
@@ -120,13 +106,8 @@ class ArticleView extends StatelessWidget {
   Widget _body(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 27),
-      child: Text(
-        article.content ?? 'No Content',
-        style: Theme.of(context)
-            .textTheme
-            .bodyText1
-            .copyWith(color: cantonGrey[900], fontWeight: FontWeight.w400),
-      ),
+      child: Text(article.content ?? 'No Content',
+          style: Theme.of(context).textTheme.bodyText1),
     );
   }
 }

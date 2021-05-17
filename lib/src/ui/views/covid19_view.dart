@@ -59,12 +59,13 @@ class _COVID19ViewState extends State<COVID19View> {
     return SliverAppBar(
       floating: true,
       elevation: 0,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       title: Text(
         'Coronavirus',
         style: Theme.of(context)
             .textTheme
             .headline5
-            .copyWith(color: CantonColors.green),
+            .copyWith(color: Theme.of(context).primaryColor),
       ),
       leading: CantonBackButton(isClear: true),
       centerTitle: true,

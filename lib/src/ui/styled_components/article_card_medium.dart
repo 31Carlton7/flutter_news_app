@@ -13,6 +13,7 @@ class ArticleCardMedium extends StatelessWidget {
     return GestureDetector(
       onTap: () => CantonMethods.viewTransition(context, ArticleView(article)),
       child: Card(
+        shape: const SquircleBorder(),
         child: Padding(
           padding: const EdgeInsets.all(7),
           child: Row(
@@ -30,7 +31,7 @@ class ArticleCardMedium extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .bodyText2
-                            .copyWith(color: CantonColors.green),
+                            .copyWith(color: Theme.of(context).primaryColor),
                       ),
                       SizedBox(height: 7),
                       Container(
@@ -39,7 +40,6 @@ class ArticleCardMedium extends StatelessWidget {
                           article.title
                               .substring(0, article.title.indexOf(' - ')),
                           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                                color: CantonColors.textPrimary,
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
