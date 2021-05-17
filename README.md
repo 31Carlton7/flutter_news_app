@@ -19,13 +19,15 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 ## Screenshots
 <div>
-  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412261-05cade00-b667-11eb-8094-ae290d4776ef.png"> </img>
-  <img width="235" src="https://user-images.githubusercontent.com/76491344/118412271-1bd89e80-b667-11eb-9eab-1e92c54c06f0.png"> </img> 
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118536691-083a4000-b71a-11eb-9aef-72a02e38c03e.jpeg"> </img>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118536829-315ad080-b71a-11eb-8ee6-89b01e637f84.jpeg"> </img> 
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118412280-285cf700-b667-11eb-9b54-665c959d92aa.png"> </img>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118412324-52161e00-b667-11eb-96c1-18a5acf01186.png"> </img>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118422701-b9e15e80-b691-11eb-8aef-fe8fe53b670d.png"> </img>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118422729-c665b700-b691-11eb-994b-ef3f73321f58.png"> </img>
 </div>
+![IMG_6F87B938CABA-1]()
+
 
 ## Socials
 
