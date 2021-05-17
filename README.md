@@ -4,15 +4,16 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 ## Features
 
-- _Top Stories Feed_: Get top stories from around the globe.
-- _Search by category_: Look at different articles by category such as Business, Health, etc.
-- _COVID-19 Section_: A designated section for Coronavirus news.
+- _Top Stories Feed:_ Get top stories from around the globe.
+- _Search by category:_ Look at different articles by category such as Business, Health, etc.
+- _COVID-19 Section:_ A designated section for Coronavirus news.
+- _Dark mode:_ Dark theme and light theme support
 
 ## TODO
 
 #### Fixes
-- [X] Fix NavBar
-- [ ] Fix "source_view" glitch
+- [ ] Fix Nav Bar
+- [ ] Fix "source_view" Range error
 
 
 ## Dependencies
@@ -32,6 +33,8 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118412271-1bd89e80-b667-11eb-9eab-1e92c54c06f0.png"> </img> 
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118412280-285cf700-b667-11eb-9b54-665c959d92aa.png"> </img>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118412324-52161e00-b667-11eb-96c1-18a5acf01186.png"> </img>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118422701-b9e15e80-b691-11eb-8aef-fe8fe53b670d.png"> </img>
+  <img width="235" src="https://user-images.githubusercontent.com/76491344/118422729-c665b700-b691-11eb-994b-ef3f73321f58.png"> </img>
 </div>
 
 ## Socials
