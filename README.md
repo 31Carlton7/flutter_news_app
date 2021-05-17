@@ -6,6 +6,7 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 - _Top Stories Feed:_ Get top stories from around the globe.
 - _Search by category:_ Look at different articles by category such as Business, Health, etc.
+- _Search by source:_ Look at news from specified source such as CNN, BBC News etc.
 - _COVID-19 Section:_ A designated section for Coronavirus news.
 - _Dark mode(WIP):_ Dark theme and light theme support
 
