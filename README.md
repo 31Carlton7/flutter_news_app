@@ -4,9 +4,10 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 ## Features
 
-- _Top Stories Feed_: Get top stories from around the globe.
-- _Search by category_: Look at different articles by category such as Business, Health, etc.
-- _COVID-19 Section_: A designated section for Coronavirus news.
+- _Top Stories Feed:_ Get top stories from around the globe.
+- _Search by category:_ Look at different articles by category such as Business, Health, etc.
+- _COVID-19 Section:_ A designated section for Coronavirus news.
+- _Dark theme:_ Dark theme and light theme support
 
 ## TODO
 
