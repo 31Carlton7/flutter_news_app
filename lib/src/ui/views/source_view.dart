@@ -2,13 +2,10 @@ import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/config/news_exceptions.dart';
 import 'package:canton_news_app/src/models/source.dart';
 import 'package:canton_news_app/src/ui/providers/news_source_provider.dart';
-import 'package:canton_news_app/src/ui/styled_components/article_card_large.dart';
-import 'package:canton_news_app/src/ui/styled_components/article_card_medium.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_grid.dart';
 import 'package:canton_news_app/src/ui/styled_components/article_list.dart';
 import 'package:canton_news_app/src/ui/styled_components/error_body.dart';
 import 'package:canton_news_app/src/ui/styled_components/unexpected_error.dart';
-import 'package:canton_news_app/src/ui/views/article_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
