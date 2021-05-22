@@ -28,12 +28,8 @@ dependencies:
       url: https://github.com/31Carlton7/canton_design_system.git
       ref: master
   flutter_riverpod:
-  persistent_bottom_nav_bar:
-  cupertino_icons:
   dio:
   intl:
-  liquid_pull_to_refresh:
-  shared_preferences:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
