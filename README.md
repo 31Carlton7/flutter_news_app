@@ -1,6 +1,6 @@
 # News App
 
-A simple news app with a minimalistic and clean UI that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
+A simple news app with a minimalistic and modern UI that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
 
 ## Features
 
