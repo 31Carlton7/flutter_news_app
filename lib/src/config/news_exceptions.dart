@@ -33,6 +33,8 @@ class NewsExceptions implements Exception {
     switch (statusCode) {
       case 400:
         return 'Bad request';
+      case 401:
+        return 'Missing API Key';
       case 404:
         return 'The requested resource was not found';
       case 500:
