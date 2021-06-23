@@ -17,12 +17,13 @@ A simple news app with a minimalistic and modern UI that incorporates the [newsa
 4. Run app
 
 ## Dependencies
-
- - canton_design_system: [Link](https://github.com/31Carlton7/canton_design_system) to repository
+```
+ - canton_design_system: *
  - flutter_riverpod:
  - dio:
  - intl:
-
+```
+* Please note that this package is not on [pub.dev](pub.dev). It's a private repo.
 ## Screenshots
 <div>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118536691-083a4000-b71a-11eb-9aef-72a02e38c03e.jpeg"> </img>
