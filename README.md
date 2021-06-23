@@ -1,6 +1,6 @@
 # News App
 
-A simple news app with a minimalistic and clean UI that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
+A simple news app with a minimalistic and modern UI that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
 
 ## Features
 
@@ -17,12 +17,13 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 4. Run app
 
 ## Dependencies
-
- - canton_design_system: [Link](https://github.com/31Carlton7/canton_design_system) to repository
+```
+ - canton_design_system: *
  - flutter_riverpod:
  - dio:
  - intl:
-
+```
+*Please note that this package is not on [pub.dev](pub.dev). It's a private repo.
 ## Screenshots
 <div>
   <img width="235" src="https://user-images.githubusercontent.com/76491344/118536691-083a4000-b71a-11eb-9aef-72a02e38c03e.jpeg"> </img>
@@ -37,5 +38,5 @@ A simple news app with a minimalistic and clean UI that incorporates the [newsap
 
 If you have any questions, you can reach me here:
 
-- Instagram: 31carlton7
+- Instagram: [@31Carlton7](https://www.instagram.com/31carlton7/)
 - Email: carltonaikins7@gmail.com
