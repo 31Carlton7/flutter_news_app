@@ -16,7 +16,7 @@ class NewsExceptions implements Exception {
         message = "Receive timeout in connection with API server";
         break;
       case DioErrorType.response:
-        message = _handleError(dioError.response.statusCode);
+        message = _handleError(dioError.response!.statusCode);
         break;
       case DioErrorType.sendTimeout:
         message = "Send timeout in connection with API server";
@@ -27,9 +27,9 @@ class NewsExceptions implements Exception {
     }
   }
 
-  String message;
+  String? message;
 
-  String _handleError(int statusCode) {
+  String _handleError(int? statusCode) {
     switch (statusCode) {
       case 400:
         return 'Bad request';
@@ -47,5 +47,5 @@ class NewsExceptions implements Exception {
   }
 
   @override
-  String toString() => message;
+  String toString() => message!;
 }
