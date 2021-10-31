@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "canton_news_app",
+            "name": "news_app",
             "request": "launch",
             "type": "dart"
         },
