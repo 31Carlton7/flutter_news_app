@@ -27,12 +27,12 @@ A simple news app with a minimalistic and modern UI that incorporates the [newsa
 
 ## Screenshots
 <div>
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_1.png"> </img>
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_2.png"> </img> 
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_3.png"> </img>
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_4.png"> </img>
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_5.png"> </img>
-  <img width="290" src="https://github.com/31carlton7/flutter_news_app/blob/master/videos/demo.gif"> </img>
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_1.png"> </img>
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_2.png"> </img> 
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_3.png"> </img>
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_4.png"> </img>
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/screenshots/screenshot_5.png"> </img>
+  <img width="250" src="https://github.com/31carlton7/flutter_news_app/blob/master/videos/demo.gif"> </img>
 </div>
 
 ## Socials
