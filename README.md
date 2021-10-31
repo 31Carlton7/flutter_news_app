@@ -10,7 +10,7 @@ A simple news app with a minimalistic and modern UI that incorporates the [newsa
 - _Search by category:_ Look at different articles by category such as Business, Health, etc.
 - _Search by source:_ Look at news from specified source such as CNN, BBC News etc.
 - _COVID-19 Section:_ A designated section for Coronavirus news.
-- _Dark mode(WIP):_ Dark theme and light theme support
+- _Dark mode:_ Dark theme and light theme support
 
 ## Getting started
 1. Obtain API key from [newsapi.org](newsapi.org)
