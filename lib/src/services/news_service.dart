@@ -7,7 +7,7 @@ class NewsService {
   NewsService(this._dio);
   final Dio _dio;
 
-  Future<List<Article>> getArticles({String path}) async {
+  Future<List<Article>> getArticles({required String path}) async {
     try {
       final response = await _dio.get(
         path,
