@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -18,18 +18,27 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
+
+  # UI
   canton_design_system:
     git:
-      url: https://github.com/31Carlton7/canton_design_system.git
+      url: git://github.com/31Carlton7/canton_design_system.git
       ref: master
-  flutter_riverpod:
-  dio:
-  intl:
+
+  # State Management
+  flutter_riverpod: ^0.14.0+3
+
+  # API
+  dio: ^4.0.0
+  flutter_easyrefresh: ^2.2.1
+
+  # Other
+  intl: ^0.17.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

@@ -7,7 +7,7 @@ packages:
       name: async
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.8.1"
   boolean_selector:
     dependency: transitive
     description:
@@ -20,8 +20,8 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "457c5438dbb42bf2ac0eb20e2becc2951be36db9"
-      url: "https://github.com/31Carlton7/canton_design_system.git"
+      resolved-ref: e5066271399a42ff78e07289d25895d98b829571
+      url: "git://github.com/31Carlton7/canton_design_system.git"
     source: git
     version: "0.0.1"
   characters:
@@ -37,14 +37,7 @@ packages:
       name: charcode
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
-  circular_check_box:
-    dependency: transitive
-    description:
-      name: circular_check_box
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.4"
+    version: "1.3.1"
   clock:
     dependency: transitive
     description:
@@ -65,7 +58,7 @@ packages:
       name: cupertino_icons
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.3"
   dio:
     dependency: "direct main"
     description:
@@ -73,13 +66,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
-  emojis:
-    dependency: transitive
-    description:
-      name: emojis
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.9.3"
   fake_async:
     dependency: transitive
     description:
@@ -87,11 +73,25 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  figma_squircle:
+    dependency: transitive
+    description:
+      name: figma_squircle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.3"
   flutter:
     dependency: "direct main"
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_easyrefresh:
+    dependency: "direct main"
+    description:
+      name: flutter_easyrefresh
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.2.1"
   flutter_feather_icons:
     dependency: transitive
     description:
@@ -99,27 +99,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0+1"
-  flutter_page_transition:
-    dependency: transitive
-    description:
-      name: flutter_page_transition
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.1.6"
   flutter_riverpod:
     dependency: "direct main"
     description:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+1"
+    version: "0.14.0+3"
   flutter_slidable:
     dependency: transitive
     description:
       name: flutter_slidable
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.5.7"
+    version: "0.6.0"
   flutter_spinkit:
     dependency: transitive
     description:
@@ -139,6 +132,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: transitive
+    description:
+      name: font_awesome_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "9.2.0"
   freezed_annotation:
     dependency: transitive
     description:
@@ -146,6 +146,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.14.1"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.4"
   http_parser:
     dependency: transitive
     description:
@@ -153,6 +160,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  iconsax:
+    dependency: transitive
+    description:
+      name: iconsax
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.8"
   intl:
     dependency: "direct main"
     description:
@@ -167,13 +181,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.1"
-  keyboard_visibility:
-    dependency: transitive
-    description:
-      name: keyboard_visibility
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.6"
   liquid_pull_to_refresh:
     dependency: transitive
     description:
@@ -194,7 +201,21 @@ packages:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.3.0"
+    version: "1.7.0"
+  ms_undraw:
+    dependency: transitive
+    description:
+      name: ms_undraw
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1+1"
+  page_transition:
+    dependency: transitive
+    description:
+      name: page_transition
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   path:
     dependency: transitive
     description:
@@ -229,7 +250,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+1"
+    version: "0.14.0+3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -241,7 +262,7 @@ packages:
       name: source_span
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.8.0"
+    version: "1.8.1"
   stack_trace:
     dependency: transitive
     description:
@@ -283,7 +304,7 @@ packages:
       name: test_api
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.19"
+    version: "0.4.2"
   typed_data:
     dependency: transitive
     description:
@@ -306,5 +327,5 @@ packages:
     source: hosted
     version: "5.1.0"
 sdks:
-  dart: ">=2.12.0 <3.0.0"
+  dart: ">=2.14.0 <3.0.0"
   flutter: ">=2.0.0"
