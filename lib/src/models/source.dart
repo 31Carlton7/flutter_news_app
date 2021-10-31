@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 class Source {
-  String id;
-  String name;
-  String category;
-  String country;
+  String? id;
+  String? name;
+  String? category;
+  String? country;
 
   Source({this.id, this.name, this.category, this.country});
 
@@ -19,10 +19,10 @@ class Source {
 
   factory Source.fromMap(Map<String, dynamic> map) {
     return Source(
-      id: map['id'] as String,
-      name: map['name'] as String,
-      category: map['category'] as String,
-      country: map['country'] as String,
+      id: map['id'] as String?,
+      name: map['name'] as String?,
+      category: map['category'] as String?,
+      country: map['country'] as String?,
     );
   }
 
