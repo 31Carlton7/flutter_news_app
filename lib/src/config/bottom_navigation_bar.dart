@@ -12,27 +12,35 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: widget.currentIndex,
-      onTap: widget.onTabTapped,
-      items: [
-        BottomNavigationBarItem(
-          icon: IconlyIcon(IconlyBold.Home,
-              size: 24,
-              color: widget.currentIndex == 0
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).colorScheme.secondaryVariant),
-          label: '',
-        ),
-        BottomNavigationBarItem(
-          icon: IconlyIcon(IconlyBold.Chart,
-              size: 24,
-              color: widget.currentIndex == 1
-                  ? Theme.of(context).primaryColor
-                  : Theme.of(context).colorScheme.secondaryVariant),
-          label: '',
-        ),
-      ],
+    return Container(
+      child: BottomNavigationBar(
+        currentIndex: widget.currentIndex,
+        onTap: widget.onTabTapped,
+        backgroundColor: Theme.of(context).colorScheme.onSecondary,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
+        unselectedItemColor: Theme.of(context).colorScheme.secondaryVariant,
+        selectedIconTheme: IconThemeData(color: Theme.of(context).primaryColor, size: 24),
+        items: [
+          BottomNavigationBarItem(
+            label: 'Top Stories',
+            tooltip: '',
+            activeIcon: Icon(Iconsax.note_2, size: 24),
+            icon: Icon(Iconsax.note_2, size: 24),
+          ),
+          BottomNavigationBarItem(
+            label: 'Sources',
+            tooltip: '',
+            activeIcon: Icon(Iconsax.favorite_chart, size: 24),
+            icon: Icon(Iconsax.favorite_chart, size: 24),
+          ),
+          BottomNavigationBarItem(
+            label: 'Categories',
+            tooltip: '',
+            activeIcon: Icon(Iconsax.category_2, size: 24),
+            icon: Icon(Iconsax.category_2, size: 24),
+          ),
+        ],
+      ),
     );
   }
 }
