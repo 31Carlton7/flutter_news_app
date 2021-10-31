@@ -41,7 +41,9 @@ class ArticleGrid extends StatelessWidget {
       ),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisExtent: 350,
+        mainAxisExtent: 260,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
       ),
     );
   }

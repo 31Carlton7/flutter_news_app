@@ -1,7 +1,7 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/models/article.dart';
 import 'article_card_medium.dart';
-import 'covid19_card.dart';
+import '../views/top_stories_view/components/covid19_card.dart';
 
 import 'article_card_large.dart';
 
@@ -19,8 +19,13 @@ class ArticleList extends StatelessWidget {
             switch (index) {
               case 0:
                 return showCovid19Card ? COVID19Card() : Container();
+
               case 1:
-                return ArticleCardLarge(articles[index], source);
+                return showCovid19Card ? const SizedBox(height: 10) : ArticleCardLarge(articles[index], source);
+              case 2:
+                return showCovid19Card
+                    ? ArticleCardLarge(articles[index], source)
+                    : ArticleCardMedium(articles[index], source);
               default:
                 return ArticleCardMedium(articles[index], source);
             }

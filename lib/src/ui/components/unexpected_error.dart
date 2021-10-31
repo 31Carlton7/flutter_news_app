@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UnexpectedError extends StatelessWidget {
   const UnexpectedError(this.provider);
-  final AutoDisposeFutureProvider provider;
+  final AutoDisposeFutureProvider? provider;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -13,18 +13,16 @@ class UnexpectedError extends StatelessWidget {
           Text(
             'Oops, something unexpected happened :(',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.headline5.copyWith(
+            style: Theme.of(context).textTheme.headline5!.copyWith(
                   color: Theme.of(context).colorScheme.secondaryVariant,
                 ),
           ),
           SizedBox(height: 20),
           CantonPrimaryButton(
             buttonText: 'Retry',
-            containerColor: Theme.of(context).primaryColor,
             textColor: CantonColors.white,
             containerWidth: MediaQuery.of(context).size.width / 2 - 74,
-            enabled: true,
-            onPressed: () => context.refresh(provider),
+            onPressed: () => context.refresh(provider!),
           ),
         ],
       ),

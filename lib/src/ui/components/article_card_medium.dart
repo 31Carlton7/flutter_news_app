@@ -1,6 +1,6 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/models/article.dart';
-import 'package:canton_news_app/src/ui/views/article_view.dart';
+import 'package:canton_news_app/src/ui/views/article_view/article_view.dart';
 
 class ArticleCardMedium extends StatelessWidget {
   const ArticleCardMedium(this.article, this.source);
@@ -12,8 +12,7 @@ class ArticleCardMedium extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () =>
-          CantonMethods.viewTransition(context, ArticleView(article, source)),
+      onTap: () => CantonMethods.viewTransition(context, ArticleView(article, source)),
       child: Card(
         shape: const SquircleBorder(),
         child: Padding(
@@ -29,21 +28,15 @@ class ArticleCardMedium extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        article.name,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodyText2
-                            .copyWith(color: Theme.of(context).primaryColor),
+                        article.name!,
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(color: Theme.of(context).primaryColor),
                       ),
                       SizedBox(height: 7),
                       Container(
                         width: MediaQuery.of(context).size.width - 64,
                         child: Text(
-                          !source
-                              ? article.title
-                                  .substring(0, article.title.indexOf(' - '))
-                              : article.title,
-                          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                          !source ? article.title!.substring(0, article.title!.indexOf(' - ')) : article.title!,
+                          style: Theme.of(context).textTheme.headline6!.copyWith(
                                 fontWeight: FontWeight.w600,
                               ),
                         ),
@@ -53,10 +46,8 @@ class ArticleCardMedium extends StatelessWidget {
                         width: MediaQuery.of(context).size.width - 164,
                         child: Text(
                           article.getPublishedAtFormattedTime,
-                          style: Theme.of(context).textTheme.caption.copyWith(
-                                color: Theme.of(context)
-                                    .colorScheme
-                                    .secondaryVariant,
+                          style: Theme.of(context).textTheme.caption!.copyWith(
+                                color: Theme.of(context).colorScheme.secondaryVariant,
                                 fontWeight: FontWeight.w400,
                               ),
                         ),
@@ -68,7 +59,7 @@ class ArticleCardMedium extends StatelessWidget {
               Flexible(
                 flex: 1,
                 child: ClipSquircleBorder(
-                  radius: 40,
+                  radius: BorderRadius.circular(27),
                   child: Image.network(
                     article.getImageUrl,
                     fit: BoxFit.cover,
