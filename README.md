@@ -1,4 +1,4 @@
-# Flutter News App
+# Flutter News Ap
 
 A simple news app with a minimalistic and modern UI that incorporates the [newsapi.org](newsapi.org) api all built entirely with Flutter. Be sure to leave a star 🌟
 
