@@ -7,68 +7,53 @@ import 'package:canton_news_app/src/ui/components/article_list.dart';
 import 'package:canton_news_app/src/ui/components/error_body.dart';
 import 'package:canton_news_app/src/ui/components/unexpected_error.dart';
 import 'package:canton_news_app/src/ui/views/category_view/components/category_view_header.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CategoryView extends StatefulWidget {
+class CategoryView extends StatelessWidget {
   const CategoryView(this.source);
-
   final Source source;
 
-  @override
-  _CategoryViewState createState() => _CategoryViewState();
-}
-
-class _CategoryViewState extends State<CategoryView> {
-  @override
-  void initState() {
-    super.initState();
-    categoryPath = widget.source.category;
-  }
+  String get _category => source.category ?? '';
 
   @override
   Widget build(BuildContext context) {
     return CantonScaffold(
       backgroundColor: CantonMethods.alternateCanvasColor(context),
-      body: _content(context),
-    );
-  }
-
-  Widget _content(BuildContext context) {
-    return Consumer(
-      builder: (context, watch, child) {
-        return watch(newsCategoryProvider).when(
-          error: (e, s) {
-            if (e is NewsExceptions) {
-              return ErrorBody(e.message, newsCategoryProvider);
-            }
-            return UnexpectedError(newsCategoryProvider);
-          },
-          loading: () => Loading(),
-          data: (articles) {
-            return EasyRefresh(
-              header: ClassicalHeader(
-                bgColor: CantonMethods.alternateCanvasColor(context),
-                textColor: Theme.of(context).primaryColor,
-                infoColor: Theme.of(context).primaryColor,
-                enableHapticFeedback: true,
-                float: false,
-              ),
-              onRefresh: () async {
-                return await context.refresh(newsCategoryProvider);
-              },
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  CategoryViewHeader(source: widget.source),
-                  ArticleList(articles, false, false),
-                  ArticleGrid(articles, false),
-                ],
-              ),
-            );
-          },
-        );
-      },
+      body: Consumer(
+        builder: (context, watch, child) {
+          return watch(newsCategoryProvider(_category)).when(
+            error: (e, s) {
+              if (e is NewsExceptions) {
+                return ErrorBody(e.message, newsCategoryProvider(_category));
+              }
+              return UnexpectedError(newsCategoryProvider(_category));
+            },
+            loading: () => Loading(),
+            data: (articles) {
+              return EasyRefresh(
+                header: ClassicalHeader(
+                  bgColor: CantonMethods.alternateCanvasColor(context),
+                  textColor: Theme.of(context).primaryColor,
+                  infoColor: Theme.of(context).primaryColor,
+                  enableHapticFeedback: true,
+                  float: false,
+                ),
+                onRefresh: () async {
+                  return await context.refresh(newsCategoryProvider(_category));
+                },
+                child: CustomScrollView(
+                  slivers: <Widget>[
+                    CategoryViewHeader(source: source),
+                    ArticleList(articles, showCovid19Card: false, isSourceView: false),
+                    ArticleGrid(articles, isSourceView: false),
+                  ],
+                ),
+              );
+            },
+          );
+        },
+      ),
     );
   }
 }

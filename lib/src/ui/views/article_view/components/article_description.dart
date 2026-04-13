@@ -3,33 +3,41 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:intl/intl.dart';
 
 class ArticleDescription extends StatelessWidget {
-  const ArticleDescription({Key? key, required this.source, required this.article}) : super(key: key);
+  const ArticleDescription({
+    Key? key,
+    required this.isSourceView,
+    required this.article,
+  }) : super(key: key);
 
-  final bool source;
+  final bool isSourceView;
   final Article article;
 
   @override
   Widget build(BuildContext context) {
+    final title = isSourceView ? (article.title ?? '') : article.displayTitle;
     return Column(
       children: [
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 27),
-          child: Text(!source ? article.title!.substring(0, article.title!.indexOf(' - ')) : article.title!,
-              style: Theme.of(context).textTheme.headline4),
+          padding: const EdgeInsets.symmetric(horizontal: 27),
+          child: Text(title, style: Theme.of(context).textTheme.headline4),
         ),
-        SizedBox(height: 12),
-        Image.network(
-          article.getImageUrl,
-          width: double.infinity,
-        ),
-        SizedBox(height: 7),
+        const SizedBox(height: 12),
+        if (article.imagePath != null)
+          Image.network(
+            article.imageUrl,
+            width: double.infinity,
+          ),
+        const SizedBox(height: 7),
         Padding(
-          padding: EdgeInsets.symmetric(horizontal: 17),
+          padding: const EdgeInsets.symmetric(horizontal: 17),
           child: Column(
             children: [
-              Text(authorName(), style: Theme.of(context).textTheme.button),
-              Text(DateFormat.yMMMd().format(DateTime.parse(article.publishedAt!)),
-                  style: Theme.of(context).textTheme.bodyText1)
+              Text(_formatAuthorName(), style: Theme.of(context).textTheme.button),
+              if (article.publishedAt != null)
+                Text(
+                  DateFormat.yMMMd().format(DateTime.parse(article.publishedAt!)),
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
             ],
           ),
         ),
@@ -37,13 +45,22 @@ class ArticleDescription extends StatelessWidget {
     );
   }
 
-  String authorName() {
-    return [null, '', 'http', 'HTTP'].contains(article.author)
-        ? 'BY UNKNOWN'
-        : article.author!.toUpperCase().contains('BY ')
-            ? article.author!.toUpperCase()
-            : article.author!.contains(',')
-                ? article.author!.toUpperCase().substring(0, article.author!.indexOf(','))
-                : 'BY ' + article.author!.toUpperCase();
+  String _formatAuthorName() {
+    final author = article.author;
+    if (author == null || author.isEmpty || author.startsWith('http') || author.startsWith('HTTP')) {
+      return 'BY UNKNOWN';
+    }
+
+    final upperAuthor = author.toUpperCase();
+    if (upperAuthor.startsWith('BY ')) {
+      return upperAuthor;
+    }
+
+    final commaIndex = upperAuthor.indexOf(',');
+    if (commaIndex != -1) {
+      return upperAuthor.substring(0, commaIndex);
+    }
+
+    return 'BY $upperAuthor';
   }
 }

@@ -4,24 +4,15 @@ import 'package:canton_news_app/src/models/source.dart';
 import 'package:dio/dio.dart';
 
 class NewsService {
-  NewsService(this._dio);
   final Dio _dio;
+
+  NewsService(this._dio);
 
   Future<List<Article>> getArticles({required String path}) async {
     try {
-      final response = await _dio.get(
-        path,
-      );
-
-      final results = List<Map<String, dynamic>>.from(
-        response.data['articles'],
-      );
-
-      final List<Article> articles = results
-          .map((articleData) => Article.fromMap(articleData))
-          .toList(growable: false);
-
-      return articles;
+      final response = await _dio.get(path);
+      final results = List<Map<String, dynamic>>.from(response.data['articles']);
+      return results.map((data) => Article.fromMap(data)).toList(growable: false);
     } on DioError catch (e) {
       throw NewsExceptions.fromDioError(e);
     }
@@ -30,16 +21,8 @@ class NewsService {
   Future<List<Source>> getSources(String path) async {
     try {
       final response = await _dio.get(path);
-
-      final results = List<Map<String, dynamic>>.from(
-        response.data['sources'],
-      );
-
-      final List<Source> sources = results
-          .map((sourceData) => Source.fromMap(sourceData))
-          .toList(growable: false);
-
-      return sources;
+      final results = List<Map<String, dynamic>>.from(response.data['sources']);
+      return results.map((data) => Source.fromMap(data)).toList(growable: false);
     } on DioError catch (e) {
       throw NewsExceptions.fromDioError(e);
     }

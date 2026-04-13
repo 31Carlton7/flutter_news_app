@@ -13,17 +13,17 @@ A simple news app with a minimalistic and modern UI that incorporates the [newsa
 - _Dark mode:_ Dark theme and light theme support
 
 ## Getting started
-1. Obtain API key from [newsapi.org](newsapi.org)
-2. Navigate to .vscode > launch.json > and input your api key where it says "YOUR_API_KEY_HERE"
-3. Navigate to lib > src > config > environment_config.dart > and input your api key where it says "YOUR_API_KEY_HERE"
-4. Run app
+1. Obtain API key from [newsapi.org](https://newsapi.org)
+2. Navigate to `lib/src/config/environment_config.dart` and replace `YOUR_API_KEY_HERE` with your API key
+3. Run app
 
 ## Dependencies
 
- - canton_design_system: [Link to repository](https://github.com/31Carlton7/canton_design_system)
- - flutter_riverpod:
- - dio:
- - intl:
+ - [canton_design_system](https://github.com/31Carlton7/canton_design_system)
+ - flutter_riverpod
+ - dio
+ - flutter_easyrefresh
+ - intl
 
 ## Screenshots
 <div>

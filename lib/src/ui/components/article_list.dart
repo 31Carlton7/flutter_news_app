@@ -1,42 +1,46 @@
 import 'package:canton_design_system/canton_design_system.dart';
 import 'package:canton_news_app/src/models/article.dart';
-import 'article_card_medium.dart';
-import '../views/top_stories_view/components/covid19_card.dart';
-
-import 'article_card_large.dart';
+import 'package:canton_news_app/src/ui/components/article_card_medium.dart';
+import 'package:canton_news_app/src/ui/views/top_stories_view/components/covid19_card.dart';
+import 'package:canton_news_app/src/ui/components/article_card_large.dart';
 
 class ArticleList extends StatelessWidget {
-  const ArticleList(this.articles, this.showCovid19Card, this.source);
+  const ArticleList(
+    this.articles, {
+    this.showCovid19Card = false,
+    this.isSourceView = false,
+  });
+
   final List<Article> articles;
-  final bool showCovid19Card, source;
+  final bool showCovid19Card;
+  final bool isSourceView;
 
   @override
   Widget build(BuildContext context) {
+    if (articles.isEmpty) {
+      return const SliverToBoxAdapter(child: SizedBox.shrink());
+    }
+
+    final maxItems = articles.length.clamp(0, 6);
+    final offset = showCovid19Card ? 2 : 0;
+
     return SliverList(
       delegate: SliverChildBuilderDelegate(
         (context, index) {
-          if (articles.length != 0 && index <= 5) {
-            switch (index) {
-              case 0:
-                return showCovid19Card ? COVID19Card() : Container();
-
-              case 1:
-                return showCovid19Card ? const SizedBox(height: 10) : ArticleCardLarge(articles[index], source);
-              case 2:
-                return showCovid19Card
-                    ? ArticleCardLarge(articles[index], source)
-                    : ArticleCardMedium(articles[index], source);
-              default:
-                return ArticleCardMedium(articles[index], source);
-            }
-          } else {
-            return Container();
+          if (showCovid19Card) {
+            if (index == 0) return COVID19Card();
+            if (index == 1) return const SizedBox(height: 10);
+            final articleIndex = index - offset;
+            if (articleIndex >= articles.length) return const SizedBox.shrink();
+            if (index == 2) return ArticleCardLarge(articles[articleIndex], isSourceView: isSourceView);
+            return ArticleCardMedium(articles[articleIndex], isSourceView: isSourceView);
           }
-        },
 
-        /// Sets ChildCount to one incase of error and needs to display on Item in the list
-        /// This also allows the use of the [RefreshList] widget, to refresh the feed.
-        childCount: articles.length != 0 ? articles.length - 1 : 1,
+          if (index >= articles.length) return const SizedBox.shrink();
+          if (index == 0) return ArticleCardLarge(articles[index], isSourceView: isSourceView);
+          return ArticleCardMedium(articles[index], isSourceView: isSourceView);
+        },
+        childCount: showCovid19Card ? maxItems + offset : maxItems,
       ),
     );
   }

@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 class Article {
-  String? id;
-  String? name;
-  String? author;
-  String? title;
-  String? content;
-  String? imagePath;
-  String? publishedAt;
+  final String? id;
+  final String? name;
+  final String? author;
+  final String? title;
+  final String? content;
+  final String? imagePath;
+  final String? publishedAt;
 
-  Article({
+  const Article({
     this.id,
     this.name,
     this.author,
@@ -19,12 +19,24 @@ class Article {
     this.publishedAt,
   });
 
-  String get getImageUrl => '$imagePath';
+  String get imageUrl => imagePath ?? '';
 
-  String get getPublishedAtFormattedTime {
-    return (DateTime.now().difference(DateTime.parse(publishedAt!)).inHours < 1)
-        ? DateTime.now().difference(DateTime.parse(publishedAt!)).inMinutes.toString() + 'm ago'
-        : DateTime.now().difference(DateTime.parse(publishedAt!)).inHours.toString() + 'h ago';
+  String get publishedAtFormatted {
+    if (publishedAt == null) return '';
+    final duration = DateTime.now().difference(DateTime.parse(publishedAt!));
+    if (duration.inHours < 1) {
+      return '${duration.inMinutes}m ago';
+    }
+    return '${duration.inHours}h ago';
+  }
+
+  /// Safely extracts the display title, stripping the trailing " - Source" suffix
+  /// commonly appended by the News API. Returns the full title if no suffix is found.
+  String get displayTitle {
+    if (title == null) return '';
+    final separatorIndex = title!.lastIndexOf(' - ');
+    if (separatorIndex == -1) return title!;
+    return title!.substring(0, separatorIndex);
   }
 
   Map<String, dynamic> toMap() {
@@ -41,8 +53,8 @@ class Article {
 
   factory Article.fromMap(Map<String, dynamic> map) {
     return Article(
-      id: map['source']['id'] as String?,
-      name: map['source']['name'] as String?,
+      id: map['source']?['id'] as String?,
+      name: map['source']?['name'] as String?,
       author: map['author'] as String?,
       title: map['title'] as String?,
       content: map['content'] as String?,
@@ -53,5 +65,5 @@ class Article {
 
   String toJson() => json.encode(toMap());
 
-  factory Article.fromJson(String name) => Article.fromMap(json.decode(name));
+  factory Article.fromJson(String source) => Article.fromMap(json.decode(source));
 }
