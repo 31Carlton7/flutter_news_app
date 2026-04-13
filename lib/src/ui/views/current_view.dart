@@ -4,9 +4,11 @@ import 'package:canton_news_app/src/ui/views/category_list_view/category_list_vi
 import 'package:canton_news_app/src/ui/views/sources_view/sources_view.dart';
 import 'package:canton_news_app/src/ui/views/top_stories_view/top_stories_view.dart';
 
-final _topStoriesNavigatorKey = GlobalKey<NavigatorState>();
-final _sourcesNavigatorKey = GlobalKey<NavigatorState>();
-final _categoriesNavigatorKey = GlobalKey<NavigatorState>();
+final _navigatorKeys = [
+  GlobalKey<NavigatorState>(),
+  GlobalKey<NavigatorState>(),
+  GlobalKey<NavigatorState>(),
+];
 
 class CurrentView extends StatefulWidget {
   @override
@@ -23,16 +25,12 @@ class _CurrentViewState extends State<CurrentView> {
   ];
 
   void _onTabTapped(int index) {
-    if (index == _currentIndex && _currentIndex == 0 && _topStoriesNavigatorKey.currentState!.canPop()) {
-      _topStoriesNavigatorKey.currentState!.pop();
+    if (index == _currentIndex) {
+      final navigatorState = _navigatorKeys[index].currentState;
+      if (navigatorState != null && navigatorState.canPop()) {
+        navigatorState.pop();
+      }
     }
-    if (index == _currentIndex && _currentIndex == 1 && _sourcesNavigatorKey.currentState!.canPop()) {
-      _sourcesNavigatorKey.currentState!.pop();
-    }
-    if (index == _currentIndex && _currentIndex == 2 && _categoriesNavigatorKey.currentState!.canPop()) {
-      _categoriesNavigatorKey.currentState!.pop();
-    }
-
     setState(() {
       _currentIndex = index;
     });
@@ -48,46 +46,33 @@ class _CurrentViewState extends State<CurrentView> {
       body: IndexedStack(
         index: _currentIndex,
         children: [
-          Navigator(
-            key: _topStoriesNavigatorKey,
-            // observers: [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics())],
-            onGenerateRoute: (settings) {
-              return MaterialPageRoute(
-                settings: settings,
-                fullscreenDialog: true,
-                builder: (context) => SafeArea(child: _views[_currentIndex]),
-              );
-            },
-          ),
-          Navigator(
-            key: _sourcesNavigatorKey,
-            // observers: [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics())],
-            onGenerateRoute: (settings) {
-              return MaterialPageRoute(
-                settings: settings,
-                fullscreenDialog: true,
-                builder: (context) => SafeArea(child: _views[_currentIndex]),
-              );
-            },
-          ),
-          Navigator(
-            key: _categoriesNavigatorKey,
-            // observers: [FirebaseAnalyticsObserver(analytics: FirebaseAnalytics())],
-            onGenerateRoute: (settings) {
-              return MaterialPageRoute(
-                settings: settings,
-                fullscreenDialog: true,
-                builder: (context) => SafeArea(
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 17),
-                    child: _views[_currentIndex],
-                  ),
-                ),
-              );
-            },
-          ),
+          _buildNavigator(0),
+          _buildNavigator(1),
+          _buildNavigator(2, horizontalPadding: 17),
         ],
       ),
+    );
+  }
+
+  Widget _buildNavigator(int index, {double horizontalPadding = 0}) {
+    return Navigator(
+      key: _navigatorKeys[index],
+      onGenerateRoute: (settings) {
+        return MaterialPageRoute(
+          settings: settings,
+          fullscreenDialog: true,
+          builder: (context) {
+            Widget child = _views[index];
+            if (horizontalPadding > 0) {
+              child = Padding(
+                padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
+                child: child,
+              );
+            }
+            return SafeArea(child: child);
+          },
+        );
+      },
     );
   }
 }

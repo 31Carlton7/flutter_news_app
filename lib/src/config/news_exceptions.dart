@@ -1,35 +1,29 @@
 import 'package:dio/dio.dart';
 
 class NewsExceptions implements Exception {
-  NewsExceptions.fromDioError(DioError dioError) {
+  final String message;
+
+  NewsExceptions(this.message);
+
+  factory NewsExceptions.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.cancel:
-        message = "Request to API server was cancelled";
-        break;
+        return NewsExceptions('Request to API server was cancelled');
       case DioErrorType.connectTimeout:
-        message = "Connection timeout with API server";
-        break;
-      case DioErrorType.other:
-        message = "Error retirieving articles";
-        break;
+        return NewsExceptions('Connection timeout with API server');
       case DioErrorType.receiveTimeout:
-        message = "Receive timeout in connection with API server";
-        break;
-      case DioErrorType.response:
-        message = _handleError(dioError.response!.statusCode);
-        break;
+        return NewsExceptions('Receive timeout in connection with API server');
       case DioErrorType.sendTimeout:
-        message = "Send timeout in connection with API server";
-        break;
+        return NewsExceptions('Send timeout in connection with API server');
+      case DioErrorType.response:
+        return NewsExceptions(_handleStatusCode(dioError.response?.statusCode));
+      case DioErrorType.other:
       default:
-        message = "Something went wrong";
-        break;
+        return NewsExceptions('Error retrieving articles');
     }
   }
 
-  String? message;
-
-  String _handleError(int? statusCode) {
+  static String _handleStatusCode(int? statusCode) {
     switch (statusCode) {
       case 400:
         return 'Bad request';
@@ -37,15 +31,15 @@ class NewsExceptions implements Exception {
         return 'Missing API Key';
       case 404:
         return 'The requested resource was not found';
-      case 500:
-        return 'Internal server error';
       case 429:
         return 'Request limit reached';
+      case 500:
+        return 'Internal server error';
       default:
         return 'Oops something went wrong';
     }
   }
 
   @override
-  String toString() => message!;
+  String toString() => message;
 }

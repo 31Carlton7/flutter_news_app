@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 class Source {
-  String? id;
-  String? name;
-  String? category;
-  String? country;
+  final String? id;
+  final String? name;
+  final String? category;
+  final String? country;
 
-  Source({this.id, this.name, this.category, this.country});
+  const Source({this.id, this.name, this.category, this.country});
 
   Map<String, dynamic> toMap() {
     return {

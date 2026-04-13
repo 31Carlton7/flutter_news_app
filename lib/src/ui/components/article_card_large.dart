@@ -3,16 +3,16 @@ import 'package:canton_news_app/src/models/article.dart';
 import 'package:canton_news_app/src/ui/views/article_view/article_view.dart';
 
 class ArticleCardLarge extends StatelessWidget {
-  const ArticleCardLarge(this.article, this.source);
+  const ArticleCardLarge(this.article, {this.isSourceView = false});
 
   final Article article;
-  final bool source;
+  final bool isSourceView;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        CantonMethods.viewTransition(context, ArticleView(article, source));
+        CantonMethods.viewTransition(context, ArticleView(article, isSourceView: isSourceView));
       },
       child: Card(
         shape: SmoothRectangleBorder(
@@ -27,30 +27,35 @@ class ArticleCardLarge extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ClipSquircleBorder(
-              radius: BorderRadius.circular(27),
-              child: Image.network(
-                article.getImageUrl,
-                fit: BoxFit.cover,
-                height: 200,
+            if (article.imagePath != null)
+              ClipSquircleBorder(
+                radius: BorderRadius.circular(27),
+                child: Image.network(
+                  article.imageUrl,
+                  fit: BoxFit.cover,
+                  height: 200,
+                ),
               ),
-            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 12),
               child: Text(
-                article.name!,
-                style: Theme.of(context).textTheme.bodyText2!.copyWith(color: Theme.of(context).primaryColor),
+                article.name ?? '',
+                style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      color: Theme.of(context).primaryColor,
+                    ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(!source ? article.title!.substring(0, article.title!.indexOf(' - ')) : article.title!,
-                  style: Theme.of(context).textTheme.headline5),
+              child: Text(
+                isSourceView ? (article.title ?? '') : article.displayTitle,
+                style: Theme.of(context).textTheme.headline5,
+              ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
               child: Text(
-                article.getPublishedAtFormattedTime,
+                article.publishedAtFormatted,
                 style: Theme.of(context).textTheme.caption!.copyWith(
                       color: Theme.of(context).colorScheme.secondaryVariant,
                       fontWeight: FontWeight.w400,
